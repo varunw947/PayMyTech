@@ -1,0 +1,208 @@
+<div class="main-content">
+    <div>
+    <h4 class="main-header">Bank Details</h4>
+    <button (click)="addBank()" class="btn btn-primary" style="margin-left: 900px;">Add New Bank</button>
+    </div>
+    
+    
+
+
+     <p-table [value]="bankList">
+        <!-- <ng-template pTemplate="caption">
+          
+              </ng-template> -->
+      <ng-template pTemplate="header">
+          <tr>
+            <th>Bank Name</th>
+                   
+            <th >Holder Name</th>
+
+            <th>Account No.</th>
+                   
+            <th >IFSC</th>
+
+            <th>Branch Name</th>
+                   
+            <th >Status</th>
+
+            <th >Created Date</th>
+    
+            
+           
+        <th ></th>
+        <!-- <th ></th> -->
+    
+        
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-bankList>
+          <tr>
+            <td>{{bankList.bankName}}</td>
+            <td>{{bankList.holderName}}</td>
+
+            <td>{{bankList.accountNo}}</td>
+            <td>{{bankList.ifsc}}</td>
+
+            <td>{{bankList.branchName}}</td>
+           
+            
+            <td>{{bankList.status}}</td>
+
+            <td>{{bankList.createdDate}}</td>
+    
+            
+    
+            
+            
+           <td> <a (click)="editBank(bankList)" class="btn btn-sm btn-primary mr-1">Update</a></td>
+            
+           <!-- <td> <a class="btn btn-sm btn-primary mr-1">Delete</a></td>             -->
+          </tr>
+      </ng-template>
+    </p-table> 
+    
+    
+    <p-dialog header="Update Bank" [(visible)]="display">
+         
+      
+         
+    
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.form)" novalidate>
+           
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !bankname.valid }">
+            
+          <input type="text" placeholder="Bank Name" class="form-control" name="bankname" [(ngModel)]="selectedBank.bankName" #bankname="ngModel" required />
+         
+          <div *ngIf="f.submitted && !bankname.valid" class="help-block">Bank Name is required</div>
+      </div>
+    
+    
+      <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !holdername.valid }">
+            
+        <input type="text" placeholder="Enter Holder Name" class="form-control" name="holdername" [(ngModel)]="selectedBank.holderName" #holdername="ngModel" required />
+       
+        <div *ngIf="f.submitted && !holdername.valid" class="help-block">Holder Name is required</div>
+    </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !accountno.valid }">
+            
+        <input type="text" placeholder="Enter Account No." class="form-control" name="accountno" [(ngModel)]="selectedBank.accountNo" #accountno="ngModel" required />
+       
+        <div *ngIf="f.submitted && !accountno.valid" class="help-block">Holder Name is required</div>
+    </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !ifsc.valid }">
+            
+        <input type="text" placeholder="Enter IFSC" class="form-control" name="ifsc" [(ngModel)]="selectedBank.ifsc" #ifsc="ngModel" required />
+       
+        <div *ngIf="f.submitted && !ifsc.valid" class="help-block">IFSC is required</div>
+    </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !branchname.valid }">
+            
+        <input type="text" placeholder="Enter Branch Name" class="form-control" name="branchname" [(ngModel)]="selectedBank.branchName" #branchname="ngModel" required />
+       
+        <div *ngIf="f.submitted && !branchname.valid" class="help-block">Branch Name is required</div>
+    </div>
+
+
+
+
+
+
+    
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !status.valid }">
+            
+        <input [disabled]="selectedBank.status" value="Active" type="text" placeholder="Enter Status" class="form-control" name="status" [(ngModel)]="selectedBank.status" #status="ngModel" required />
+        
+        <!-- <div *ngIf="f.submitted && !status.valid" class="help-block">Status is required</div> -->
+        </div>
+
+        
+    
+    <div class="form-group">
+     <div class="row">
+            <button class="btn btn-primary" style="margin-left: 20px;">Update</button>
+            <button class="btn btn-primary" (click)="closePopup()" style="margin-left: 20px;">Cancel</button>
+      </div>
+    </div>
+    
+    
+       
+    
+        </form> 
+    
+      </p-dialog>
+      
+      <p-dialog header="Add Bank" [(visible)]="displayNew">
+         
+      
+         
+    
+        <form name="form" #f1="ngForm" (ngSubmit)="f1.form.valid && onSubmit2()" novalidate>
+             
+           
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !bankname.valid }">
+            
+                <input type="text" placeholder="Bank Name" class="form-control" name="bankname" [(ngModel)]="model.bankName" #bankname="ngModel" required />
+               
+                <div *ngIf="f1.submitted && !bankname.valid" class="help-block">Bank Name is required</div>
+            </div>
+          
+          
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !holdername.valid }">
+                  
+              <input type="text" placeholder="Enter Holder Name" class="form-control" name="holdername" [(ngModel)]="model.holderName" #holdername="ngModel" required />
+             
+              <div *ngIf="f1.submitted && !holdername.valid" class="help-block">Holder Name is required</div>
+          </div>
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !accountno.valid }">
+                  
+              <input type="text" placeholder="Enter Account No." class="form-control" name="accountno" [(ngModel)]="model.accountNo" #accountno="ngModel" required />
+             
+              <div *ngIf="f1.submitted && !accountno.valid" class="help-block">Holder Name is required</div>
+          </div>
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !ifsc.valid }">
+                  
+              <input type="text" placeholder="Enter IFSC" class="form-control" name="ifsc" [(ngModel)]="model.ifsc" #ifsc="ngModel" required />
+             
+              <div *ngIf="f1.submitted && !ifsc.valid" class="help-block">IFSC is required</div>
+          </div>
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !branchname.valid }">
+                  
+              <input type="text" placeholder="Enter Branch Name" class="form-control" name="branchname" [(ngModel)]="model.branchName" #branchname="ngModel" required />
+             
+              <div *ngIf="f1.submitted && !branchname.valid" class="help-block">Branch Name is required</div>
+          </div>
+           
+
+
+           
+          
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !status.valid }">
+                  
+              <input [disabled]="model.status" value="Active" type="text" placeholder="Enter Status" class="form-control" name="status" [(ngModel)]="model.status" #status="ngModel" required />
+              
+              <!-- <div *ngIf="f1.submitted && !status.valid" class="help-block">Status is required</div> -->
+              </div>
+
+
+
+       <div class="form-group">
+       <div class="row">
+              <button class="btn btn-primary" style="margin-left: 20px;">Add</button>
+              <button class="btn btn-primary" (click)="closePopup2()" style="margin-left: 20px;">Cancel</button>
+        </div>
+      </div> 
+      
+      
+         
+      
+          </form> 
+      
+        </p-dialog>
+    
+    </div>

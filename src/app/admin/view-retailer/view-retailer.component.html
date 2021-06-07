@@ -1,0 +1,167 @@
+<div class="main-content">
+    <div>
+    <h4 class="main-header">Manage Retailer</h4>
+    
+    </div>
+
+    
+<p-table [value]="retailerList">
+    <!-- <ng-template pTemplate="caption">
+        Retailers List
+          </ng-template> -->
+  <ng-template pTemplate="header">
+      <tr>
+        <th>Dist Code</th>
+          
+        <th> Dist Outlet Name </th>
+
+        <th>Retailer Unique Code</th>
+
+        <th>Customer Name</th>
+
+        <th>Outlet Name</th>
+
+        <th>Location</th>
+        <th>State</th>
+        <th>Sales Person</th>
+
+        <th>Address</th>
+        <th>PinCode</th>
+        <th>City</th>
+
+        <th>Mobile</th>
+        
+
+        <th>PanCard</th>
+        <th>Email</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-retailerList>
+      <tr>
+        <td>{{retailerList.uniqueCode}}</td>
+        <td>{{retailerList.distributorName}}</td>
+
+        <td>{{retailerList.userName}}</td>
+        <td>{{retailerList.firstName}}</td>
+
+        <td>{{retailerList.outletName}}</td>
+        <td>{{retailerList.location}}</td>
+
+        <td>{{retailerList.state}}</td>
+        <td>{{retailerList.salesPerson}}</td>
+
+        <td>{{retailerList.address}}</td>
+        <td>{{retailerList.pinCode}}</td>
+        <td>{{retailerList.city}}</td>
+
+        <td>{{retailerList.mobile}}</td>
+       
+
+        <td>{{retailerList.panCard}}</td>
+
+        <td>{{retailerList.emailAddress}}</td>
+
+        
+       
+
+       
+
+      
+
+       <td> <a (click)="editRetailer(retailerList)" class="btn btn-sm btn-primary mr-1">Edit</a></td>
+        
+       <td> <a class="btn btn-sm btn-primary mr-1">Delete</a></td>            
+      </tr>
+  </ng-template>
+</p-table>
+
+
+<p-dialog header="Edit Retailer" [(visible)]="display">
+     
+  
+     
+
+
+  <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.form)" novalidate>
+       
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !firstname.valid }">
+        
+      <input type="text" placeholder="First Name" class="form-control" name="firstname" [(ngModel)]="selectedUser.firstName" #firstname="ngModel" required />
+     
+      <div *ngIf="f.submitted && !firstname.valid" class="help-block">First Name is required</div>
+  </div>
+
+
+  <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !location.valid }">
+        
+    <input type="text" placeholder="Enter Location" class="form-control" name="location" [(ngModel)]="selectedUser.location" #location="ngModel" required />
+   
+    <div *ngIf="f.submitted && !location.valid" class="help-block">Location is required</div>
+</div>
+
+<div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !state.valid }">
+        
+  <input type="text" placeholder="Enter State" class="form-control" name="state" [(ngModel)]="selectedUser.state" #state="ngModel" required />
+ 
+  <div *ngIf="f.submitted && !state.valid" class="help-block">State is required</div>
+</div>
+
+<div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !address.valid }">
+        
+<input type="text" placeholder="Enter Address" class="form-control" name="address" [(ngModel)]="selectedUser.address" #address="ngModel" required />
+
+<div *ngIf="f.submitted && !address.valid" class="help-block">Address is required</div>
+</div>
+
+<div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !pincode.valid }">
+        
+<input type="text" placeholder="Enter Pincode" class="form-control" name="pincode" [(ngModel)]="selectedUser.pinCode" #pincode="ngModel" required />
+
+<div *ngIf="f.submitted && !pincode.valid" class="help-block">Pincode is required</div>
+</div>
+
+<div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !city.valid }">
+        
+<input type="text" placeholder="Enter City" class="form-control" name="city" [(ngModel)]="selectedUser.city" #city="ngModel" required />
+
+<div *ngIf="f.submitted && !city.valid" class="help-block">City is required</div>
+</div>
+
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
+    
+<input type="text" pattern="^\s*(([+]\s?\d[-\s]?\d|0)?\s?\d([-\s]?\d){9}|[(]\s?\d([-\s]?\d)+\s*[)]([-\s]?\d)+)\s*$" placeholder="Mobile Number" class="form-control" name="mobile" [(ngModel)]="selectedUser.mobile" #mobile="ngModel" required />
+
+<div *ngIf="f.submitted && !mobile.valid" class="help-block">Mobile Number is required</div>
+<div *ngIf="mobile.errors?.pattern" class="help-block" style="color:red">Mobile Number is not valid!</div>
+</div>
+
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !emailAddress.valid }">
+    
+<input type="email" [email]="true" placeholder="Email" class="form-control" name="emailAddress" [(ngModel)]="selectedUser.emailAddress" #emailAddress="ngModel" required />
+
+<div *ngIf="f.submitted && !emailAddress.valid" class="help-block">Email is required and format should be <i>john@domain.com</i></div>
+</div>
+
+<div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !outletName.valid }">
+        
+<input type="text" placeholder="Enter Outlet Name" class="form-control" name="outletName" [(ngModel)]="selectedUser.outletName" #outletName="ngModel" required />
+
+<div *ngIf="f.submitted && !outletName.valid" class="help-block">outletName is required</div>
+</div>
+
+
+<div class="form-group">
+ <div class="row">
+        <button class="btn btn-primary" style="margin-left: 20px;">Update</button>
+        <button class="btn btn-primary" (click)="closePopup()" style="margin-left: 20px;">Cancel</button>
+  </div>
+</div>
+
+
+   
+
+    </form> 
+
+</p-dialog>
+
+</div>

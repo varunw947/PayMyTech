@@ -1,0 +1,99 @@
+
+
+
+ <nav class="navbar navbar-expand-md bg-theme navbar-dark bg-sexyblue">
+  <div class="container clearfix" style="padding:10px">
+  <!-- <a class="navbar-brand navbar-responsive" style="font-size:x-large;" routerLink="./login">
+    <img  src="/assets/airtel.jpg" style="vertical-align:middle;margin:0px 50px" alt="">
+    </a> -->
+
+    <a routerLink="./alogin">
+      <img  src="/assets/logo.png" style="min-height: 100px;">
+      </a> 
+
+  <button class="navbar-toggler" type="button" (click)="clickMobmode()"  data-toggle="collapse" aria-controls="navbarCollapse"
+  aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarCollapse">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="navbar-brand" routerLinkActive="active" routerLink="./about">About Us</a>
+    </li>      
+    <li class="nav-item dropdown">
+      <a class="navbar-brand dropdown-toggle" (click)="toogleOpen()" style="color: white;" id="navbardrop" data-toggle="dropdown">
+       Services
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="./rechargecontent">Bill Payment & Recharges</a>
+        <a class="dropdown-item" routerLink="./bankcontent">Banking Services</a>
+        <a class="dropdown-item" routerLink="./travelcontent">Travel Services</a>
+      </div>
+    </li>
+
+
+  
+
+    
+    <li class="nav-item">
+      <a class="navbar-brand" routerLinkActive="active" routerLink="./contact">Contact Us</a>
+    </li>
+
+    <div class="row menu-btn">
+      <div>
+        <button class="btn btn-primary" routerLink="./distLogin"> Distributor Login
+         </button>
+      </div>
+
+<div style="padding-left: 15px;">
+      <button class="btn btn-primary" routerLink="./retailerlogin"> Retailer Login </button>
+    </div>
+
+    
+      
+    </div>
+
+  </ul>
+
+</div>
+
+</div>
+  
+</nav> 
+
+
+<div>
+    <router-outlet></router-outlet>
+</div>
+
+
+<!-- <div id="footer" style="
+ position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+  
+    margin-top: 50px;
+background:#000; text-align: center;">
+
+<div class="col-md-12">
+  <div class="center" style="display: inline-flex;margin-top:15px ;">
+  <p style="color:#fff">  @CopyRight 2021  </p>
+  <a routerLink="./terms" style="color:#fff">|  Terms & Conditions |</a>
+  <a routerLink="./faq" style="color:#fff">  FAQ  |</a>
+</div>
+</div>
+
+</div>  -->
+
+
+  
+
+
+
+
+
+
+  
+  

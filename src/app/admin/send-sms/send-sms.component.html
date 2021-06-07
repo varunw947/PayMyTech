@@ -1,0 +1,97 @@
+<div class="main-content">
+    <div class="shadow main-header">
+    <h2>Send SMS</h2>
+    </div>
+    
+    <div class="shadow main-body">
+        
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        
+       
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !api.valid }">
+            
+            <select class="form-control" (change)="getAPIName($event)" name="api" [(ngModel)]="ApiName" #api="ngModel" required>
+              <option [disabled]="ApiName" value="undefined">Select API</option>
+            
+              <option *ngFor="let pvd of ApiProviderHeader" [value]="pvd.apiName">{{pvd.apiName}}</option>
+            </select>
+            <div *ngIf="f.submitted && !api.valid" class="help-block">API is required</div>
+        </div>
+       
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !message.valid }">
+       
+            <input type="text" placeholder="Enter Message" class="form-control" name="message" [(ngModel)]="Message" #message="ngModel" required />
+            <div *ngIf="f.submitted && !message.valid" class="help-block">Message is required</div>
+        </div>
+    
+        <div class="row">
+          <div class="div-marginlt">
+          <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Send SMS
+          </button>
+          </div>
+    
+        </div>
+    
+        
+          
+        </div>
+    
+    
+        
+    </form>
+    
+    
+    
+      
+        
+      </div>
+    
+
+
+      <div class="shadow main-body">
+        
+        <form name="form" (ngSubmit)="f1.form.valid && onSubmit2()" #f1="ngForm" novalidate>
+          
+            <div class="form-group" [ngClass]="{ 'has-error': f1.submitted && !number.valid }">
+         
+                <input type="text" placeholder="Enter Number" class="form-control" name="number" [(ngModel)]="Number" #number="ngModel" required />
+                <div *ngIf="f1.submitted && !number.valid" class="help-block">Number is required</div>
+            </div>
+         
+         
+          <div class="form-group" [ngClass]="{ 'has-error': f1.submitted && !message1.valid }">
+         
+              <input type="text" placeholder="Enter Message" class="form-control" name="message1" [(ngModel)]="Message1" #message1="ngModel" required />
+              <div *ngIf="f1.submitted && !message1.valid" class="help-block">Message is required</div>
+          </div>
+      
+          <div class="row">
+            <div class="div-marginlt">
+            <div class="form-group">
+              <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Send SMS
+            </button>
+            </div>
+      
+          </div>
+      
+          
+            
+          </div>
+      
+      
+          
+      </form>
+      
+      
+      
+        
+          
+        </div>
+
+
+    </div>

@@ -1,0 +1,141 @@
+<div class="main-content">
+    <div>
+    <h4 class="main-header">Plan Details</h4>
+    <button (click)="addPlan()" class="btn btn-primary" style="margin-left: 900px;">Add New Plan</button>
+    </div>
+    
+    
+
+
+     <p-table [value]="planList">
+        <!-- <ng-template pTemplate="caption">
+          
+              </ng-template> -->
+      <ng-template pTemplate="header">
+          <tr>
+            <th>Plan Name</th>
+                   
+            <th >Price</th>
+            
+
+            <th >Status</th>
+    
+            
+           
+        <th ></th>
+        <!-- <th ></th> -->
+    
+        
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-planList>
+          <tr>
+            <td>{{planList.planName}}</td>
+            <td>{{planList.price}}</td>
+    
+            
+            <td>{{planList.status}}</td>
+            
+    
+            
+            
+           <td> <a (click)="editPlan(planList)" class="btn btn-sm btn-primary mr-1">Update</a></td>
+            
+           <!-- <td> <a class="btn btn-sm btn-primary mr-1">Delete</a></td>             -->
+          </tr>
+      </ng-template>
+    </p-table> 
+    
+    
+    <p-dialog header="Update Plan" [(visible)]="display">
+         
+      
+         
+    
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.form)" novalidate>
+           
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !planname.valid }">
+            
+          <input type="text" placeholder="Plan Name" class="form-control" name="planname" [(ngModel)]="selectedPlan.planName" #planname="ngModel" required />
+         
+          <div *ngIf="f.submitted && !planname.valid" class="help-block">Plan Name is required</div>
+      </div>
+    
+    
+      <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !price.valid }">
+            
+        <input type="text" placeholder="Enter Price" class="form-control" name="price" [(ngModel)]="selectedPlan.price" #price="ngModel" required />
+       
+        <div *ngIf="f.submitted && !price.valid" class="help-block">Price is required</div>
+    </div>
+    
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !status.valid }">
+            
+        <input [disabled]="selectedPlan.status" value="Active" type="text" placeholder="Enter Status" class="form-control" name="status" [(ngModel)]="selectedPlan.status" #status="ngModel" required />
+        
+        <!-- <div *ngIf="f.submitted && !status.valid" class="help-block">Status is required</div> -->
+        </div>
+
+        
+    
+    <div class="form-group">
+     <div class="row">
+            <button class="btn btn-primary" style="margin-left: 20px;">Update</button>
+            <button class="btn btn-primary" (click)="closePopup()" style="margin-left: 20px;">Cancel</button>
+      </div>
+    </div>
+    
+    
+       
+    
+        </form> 
+    
+      </p-dialog>
+      
+      <p-dialog header="Add Plan" [(visible)]="displayNew">
+         
+      
+         
+    
+        <form name="form" #f1="ngForm" (ngSubmit)="f1.form.valid && onSubmit2()" novalidate>
+             
+            
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !planname.valid }">
+            
+                <input type="text" placeholder="Plan Name" class="form-control" name="planname" [(ngModel)]="model.planName" #planname="ngModel" required />
+               
+                <!-- <div *ngIf="f1.submitted && !planname.valid" class="help-block">Plan Name is required</div> -->
+            </div>
+          
+          
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !price.valid }">
+                  
+              <input type="text" placeholder="Enter Price" class="form-control" name="price" [(ngModel)]="model.price" #price="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !price.valid" class="help-block">Plan URL is required</div> -->
+          </div>
+          
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !status.valid }">
+                  
+              <input [disabled]="model.status" value="Active" type="text" placeholder="Enter Status" class="form-control" name="status" [(ngModel)]="model.status" #status="ngModel" required />
+              
+              <!-- <div *ngIf="f1.submitted && !status.valid" class="help-block">Status is required</div> -->
+              </div>
+
+
+
+       <div class="form-group">
+       <div class="row">
+              <button class="btn btn-primary" style="margin-left: 20px;">Add</button>
+              <button class="btn btn-primary" (click)="closePopup2()" style="margin-left: 20px;">Cancel</button>
+        </div>
+      </div> 
+      
+      
+         
+      
+          </form> 
+      
+        </p-dialog>
+    
+    </div>

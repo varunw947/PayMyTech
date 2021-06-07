@@ -1,0 +1,332 @@
+ 
+  <div style="max-width: 500px; margin: 0px auto;">
+  <h2 class="card-header">Travel Booking</h2>
+  
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div class="col-md-12 mb-3">
+        <label for="destination">Enter Destination</label>
+        <input type="text" formControlName="destination" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.destination.errors }">
+        <div *ngIf="submitted && f.destination.errors" class="invalid-feedback">
+          <div *ngIf="f.destination.errors.required">Destinantion is required</div>
+      </div>
+       </div>
+      
+
+    </div>
+
+         
+    <div class="form-group">
+      <div class="col-md-12 mb-3">
+        <label for="persons">No. of Persons</label>
+        <input type="text" formControlName="persons" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.persons.errors }">
+        <div *ngIf="submitted && f.persons.errors" class="invalid-feedback">
+          <div *ngIf="f.persons.errors.required">No. of Persons is required</div>
+      </div>
+      </div>
+
+      
+    </div>
+
+   
+  
+    <div class="row">
+      <div class="form-group" style="padding-left: 30px;">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Submit
+      </button>
+      </div>
+
+<div style="padding-left: 15px;" class="form-group">
+      <button class="btn btn-primary" routerLink="/sidebar/home/category"> Cancel </button>
+    </div>
+      
+    </div>
+  </form>
+    
+  </div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+  <script>
+   $(".dropdown").on("show.bs.dropdown", function(event){
+  var x = $(event.relatedTarget).text(); // Get the text of the element
+  alert(x);
+});
+    </script>
+</head>
+<body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-messages.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.js"></script>
+
+
+
+<div class="container">
+  <h1>My First Bootstrap Page</h1>
+  <p>This is some text.</p>
+
+  <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      Dropdown button
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Link 1</a>
+      <a class="dropdown-item" href="#">Link 2</a>
+      <a class="dropdown-item" href="#">Link 3</a>
+    </div>
+  </div>
+  
+  </div>
+
+
+
+   <img src="http://localhost:4200/assets/money.jpg" class="rounded-circle" alt="Cinque Terre">
+
+<div>
+  <button type="button" class="btn">Basic</button>
+  <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn btn-secondary">Secondary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-info">Info</button>
+  <button type="button" class="btn btn-warning">Warning</button>
+  <button type="button" class="btn btn-danger">Danger</button>
+  <button type="button" class="btn btn-dark">Dark</button>
+  <button type="button" class="btn btn-light">Light</button>
+  <button type="button" class="btn btn-link">Link</button>
+</div>
+
+<div class="btn-group btn-group-lg">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%"></div>
+</div>
+
+
+<ul class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#">Photos</a></li>
+  <li class="breadcrumb-item"><a href="#">Summer 2017</a></li>
+  <li class="breadcrumb-item"><a href="#">Italy</a></li>
+  <li class="breadcrumb-item active">Rome</li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item active">Active item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul>
+
+
+
+
+
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Link 1</a>
+    <a class="dropdown-item" href="#">Link 2</a>
+  </div>
+</div>
+
+
+<div>
+<button data-toggle="collapse" data-target="#demo">Click me</button>
+
+<div id="demo" class="collapse">
+Lorem ipsum dolor text....
+</div>
+
+</div>
+
+
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+  </li>
+</ul>
+
+
+<div class="tab-content">
+  <div class="tab-pane container active" id="home">...</div>
+  <div class="tab-pane container fade" id="menu1">...</div>
+  <div class="tab-pane container fade" id="menu2">...</div>
+</div>
+
+
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  
+  <a class="navbar-brand" href="#">Navbar</a>
+
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+ 
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+     
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<form>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="customFile">
+    <label class="custom-file-label" for="customFile">Choose file</label>
+  </div>
+</form>
+
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+
+<a href="#" title="Header" data-toggle="popover" data-placement="top" data-content="Content">Click</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="bottom" data-content="Content">Click</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="left" data-content="Content">Click</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="right" data-content="Content">Click</a>
+
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+  });
+  </script>
+
+
+
+
+<div class="toast" data-autohide="false">
+  <div class="toast-header">
+    <strong class="mr-auto text-primary">Toast Header</strong>
+    <small class="text-muted">5 mins ago</small>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+  </div>
+  <div class="toast-body">
+    Some text inside the toast body
+  </div>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+    $('.toast').toast('show');
+  });
+  </script>
+
+
+<div class="media border p-3">
+  <img src="http://localhost:4200/assets/money.jpg" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+  <div class="media-body">
+    <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+    <p>Lorem ipsum...</p>
+  </div>
+</div>
+
+
+<div class="collapse" id="navbarToggleExternalContent" style="padding-top: 100px;">
+  <div class="bg-dark p-4">
+    <h5 class="text-white h4">Collapsed content</h5>
+    <span class="text-muted">Toggleable via the navbar brand.</span>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav> 
+
+
+
+</body>
+</html>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

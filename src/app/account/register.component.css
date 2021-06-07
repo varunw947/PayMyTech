@@ -1,0 +1,16 @@
+.btn-primary{
+    color: #fff;
+    background-color: #33b5e5 !important;
+    border-color: #33b5e5 !important;
+    font-weight: bold;
+    font-size: 20px;
+}
+.card{
+    box-shadow: 0px 2px 22px 0px #ccc;
+}
+.card-header{
+    box-shadow: 0px 2px 12px 0px #d4edf7;
+    background-color: #33b5e5;
+    color: #fff;
+    border: none;
+}

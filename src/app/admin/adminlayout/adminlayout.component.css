@@ -1,0 +1,11 @@
+.navbar
+{
+    padding: 0px;
+}
+.bg-sexyblue{
+    background: linear-gradient(#030404,#4e7077 );
+}
+.btn-primary{
+    background-color:#223324 !important;
+    border-color:#223324 !important;
+}

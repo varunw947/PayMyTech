@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  .ngx-datatable {
+    height: 100vh;
+  }
+  .datatable-body-cell {
+    overflow-x: visible !important;
+    }
+    .datatable-row-wrapper:hover {
+      z-index: 12; // higher than other rows
+     }
+}

@@ -1,0 +1,401 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "productName": "Airtel",
+        "category_id": "1",
+        "productImg": "http://localhost:4200/assets/airtelHD.png"
+        
+      },
+      {
+        "id": 2,
+        "productName": "Jio",
+        "category_id": "1",
+        "productImg": "http://localhost:4200/assets/jioHD.png"
+        
+      },
+      {
+        "id": 3,
+        "category_id": "1",
+        "productName": "VodaIdea",
+        "productImg": "http://localhost:4200/assets/ideaHD.png"
+        
+      },
+    
+      {
+        "id": 11,
+        "category_id": "2",
+        "productName": "Airtel DTH",
+        "productImg": "http://localhost:4200/assets/airtelHD.png"
+        
+        
+      },
+  
+      {
+        "id": 12,
+        "productName": "Dish DTH",
+        "category_id": "2",
+        "productImg": "http://localhost:4200/assets/dish.png"
+        
+      },
+
+      {
+        "id": 13,
+        "productName": "Vediocon DTH ",
+        "category_id": "2",
+        "productImg": "http://localhost:4200/assets/vd.jpg"
+      },
+
+
+
+      {
+        "id": 21,
+        "productName": "UHBVN ",
+        "category_id": "3",
+        "productImg": "http://localhost:4200/assets/vd.jpg"
+      },
+
+      {
+        "id": 22,
+        "productName": "DHBVN ",
+        "category_id": "3",
+        "productImg": "http://localhost:4200/assets/vd.jpg"
+      },
+
+
+
+      {
+        "id": 47,
+        "productName": "Money Tranfer",
+        "category_id": "6",
+        "productImg": "http://localhost:4200/assets/money.jpg"
+      },
+
+
+      {
+        "id": 48,
+        "productName": "Travel Booking",
+        "category_id": "7",
+        "productImg": "http://localhost:4200/assets/travel.jpg"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "categoryName": "Mobile",
+        "categoryImg": "http://localhost:4200/assets/mob.png"
+      },
+      {
+        "id": 2,
+        "categoryName": "Utility",
+        "categoryImg": "http://localhost:4200/assets/utility.png"
+      },
+
+{
+        "id": 3,
+        "categoryName": "DMT",
+        "categoryImg": "http://localhost:4200/assets/DMT.png"
+      },
+      {
+        "id": 4,
+        "categoryName": "Travel",
+        "categoryImg": "http://localhost:4200/assets/flight.png"
+      }
+    ],
+
+    "utilities": [
+      {
+        "utid":1,
+        "id": "2",
+        "utName": "DTH",
+        "utImg": "http://localhost:4200/assets/DTH.png"
+      },
+      {
+        "utid":2,
+        "id": "2",
+        "utName": "Electricity Bill",
+        "utImg": "http://localhost:4200/assets/electricity.png"
+      },
+      {
+        "utid":3,
+        "id": "2",
+        "utName": "Gas Bill",
+        "utImg": "http://localhost:4200/assets/gas.png"
+      },
+      {
+        "utid":4,
+        "id": "2",
+        "utName": "Insurance Bill",
+        "utImg": "http://localhost:4200/assets/insurance.png"
+      }
+    ],
+    "comments": [
+      {
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
+      }
+    ],
+
+
+
+   "plans":[
+      {"provider_id": 1, "Detail":"Enjoy TRULY unlimited Local, STD & Roaming calls on any network, 2 GB data, 300 National SMS for 28 days","Amount":"149","Validity":"28 Days"},
+
+{"provider_id": 1, "Detail":"3G/4G Data: 100 MB. Talktime: Rs.38.52. Pack validity 28 days","Amount":"49","Validity":"28 Days"},
+
+{"provider_id": 1, "Detail":"Enjoy TRULY unlimited Local, STD & Roaming calls on any network, 1.5 GB data per day, 100 National SMS/day for 56 days","Amount":"399","Validity":"56 Days"},
+
+{"provider_id": 1, "Detail":"Enjoy TRULY unlimited Local, STD & Roaming calls on any network, 1.5 GB data per day, 100 National SMS/day for 28 days.","Amount":"249","Validity":"28 Days"},
+
+{"provider_id": 1, "Detail":"Enjoy TRULY unlimited Local, STD & Roaming calls on any network, 1.5 GB data per day, 100 National SMS/day for 84 days","Amount":"598","Validity":"84 days"},
+
+{"provider_id": 1, "Detail":"4G Data: 3 GB","Amount":"48","Validity":"28 Days"},
+
+{"provider_id": 1, "Detail":"Enjoy 12GB extra data, valid till your current pack validity. Pack applicable for users on Unlimited Packs and Smart Recharges.","Amount":"98","Validity":"NA"},
+
+{"provider_id": 1, "Detail":"Regular Talktime","Amount":"10","Validity":"NA"},
+
+{"provider_id": 1,"Detail":"Regular Talktime","Amount":"20","Validity":"NA"},
+
+{"provider_id": 1,"Detail":"Enjoy 12 months of Wynk Premium for ad-free music and unlimited songs download. You also get 25GB data valid till your current pack validity.","Amount":"248","Validity":"NA"},
+
+{"provider_id": 1,"Detail":"Enjoy 28 days FREE trial of Prime Video Mobile Edition for unlimited entertainment. You also get 1.5GB/day unlimited calls & 100SMS/day for 28 days","Amount":"299","Validity":"28 Days"}
+
+
+
+
+   ],
+
+
+
+
+
+
+   "Jioplans":[
+    {"provider_id": 112, "Detail":"Data: 1.5 GB/day Voice: Unlimited voice calls","Amount":"199","Validity":"28 Days"},
+
+{"provider_id": 112, "Detail":"Data: 1 GB/Day Voice: Unlimited voice calls","Amount":"149","Validity":"24 Days"},
+
+{"provider_id": 112, "Detail":"Data: 1.5 GB/Day Voice: Unlimited voice calls","Amount":"555","Validity":"84 Days"},
+
+{"provider_id": 112, "Detail":"Data: 2 GB/Day Voice: Unlimited voice calls","Amount":"599","Validity":"84 Days"},
+
+{"provider_id": 112, "Detail":"Data: 1.5 GB/Day Voice: Unlimited voice calls","Amount":"399","Validity":"56 days"},
+
+{"provider_id": 112, "Detail":"For Jio Phone Customers Only-Data: 0.1 GB/day Voice: Unlimited voice calls","Amount":"75","Validity":"28 Days"},
+
+{"provider_id": 112, "Detail":"For Jio Phone Customers Only-Data: 0.5GB/day Voice: Unlimited voice calls","Amount":"125","Validity":"28 Days"},
+
+{"provider_id": 112, "Detail":"For Jio Phone Customers Only-Data: 1 GB/day Voice: Unlimited voice calls","Amount":"155","Validity":"28 Days"},
+
+{"provider_id": 112,"Detail":"Data: 2 GB Validity: Existing Plan. (For users with an active validity plan)","Amount":"21","Validity":"NA"},
+
+{"provider_id": 112,"Detail":"Data: 1 GB Validity: Existing Plan (For users with an active validity plan).","Amount":"11","Validity":"NA"},
+
+{"provider_id": 112,"Detail":"Data: 6 GB Validity: Existing Plan. (For users with an active validity plan)","Amount":"51","Validity":"NA"},
+
+{"provider_id": 112,"Detail":"Regular Talktime","Amount":"10","Validity":"Unlimited"},
+
+{"provider_id": 112,"Detail":"Regular Talktime","Amount":"20","Validity":"Unlimited"},
+
+{"provider_id": 112,"Detail":"Regular Talktime","Amount":"1","Validity":"Unlimited"}
+
+
+ ],
+
+
+
+ "Viplans":[
+  {"provider_id": 2, "Detail":"2G/3G/4G Data: 100 MB. Local & STD Calls @ 2.5 p/sec. Talktime: Rs.38.0","Amount":"49","Validity":"28 Days"},
+
+{"provider_id": 2, "Detail":"Now get Truly Unlimited FREE Local/ STD/Roaming Calls to all Networks+2GB Data+300SMS,Vi Movies & TV access.","Amount":"149","Validity":"28 Days"},
+
+{"provider_id": 2, "Detail":"Now enjoy Weekend Data roll-over + 1.5 GB/Day Data + Truly Unlimited FREE Local/ STD/Roaming Calls to all Networks + 100 Local & National SMS/Day Pack Valid for 28 Days,Vi Movies & TV access","Amount":"249","Validity":"28 Days"},
+
+{"provider_id": 2, "Detail":"2G/3G/4G Data: 2 GB. Local, STD & Roaming Calls: Unlimited. SMS: 300 SMS","Amount":"129","Validity":"24 Days"},
+
+{"provider_id": 2, "Detail":"2G/3G/4G Data: 100 MB. Local & STD Calls @ 2.5 p/sec. Talktime: Rs.30.0, Validity- No service validity","Amount":"39","Validity":"NA"},
+
+{"provider_id": 2, "Detail":"2G/3G/4G Data: 1 GB, Valid for 24 hours Validity-No service validity","Amount":"16","Validity":"NA"},
+
+{"provider_id": 2, "Detail":"2G/3G/4G Data: 3 GB. Service Validity 28 days","Amount":"48","Validity":"28 Days"},
+
+{"provider_id": 2, "Detail":"Regular Talktime No Service Validity available with this Talktime Pack","Amount":"10","Validity":"NA"},
+
+{"provider_id": 2,"Detail":"Regular Talktime No Service Validity available with this Talktime Pack","Amount":"50","Validity":"NA"},
+
+{"provider_id": 2,"Detail":"2G/3G/4G Data: 50 GB. Vi Movies & TV access.Service validity 28 days.","Amount":"251","Validity":"28 Days"},
+
+{"provider_id": 2,"Detail":"Now enjoy Weekend Data roll-over + DOUBLE DATA i.e, 2 + 2 = 4GB/Day + Truly Unlimited FREE Local/ STD/Roaming Calls to all Networks + 100 Local & National SMS/Day. Pack Validity for 28 Days, Vi Movies & TV access","Amount":"299","Validity":"28 Days"},
+
+{"provider_id": 2,"Detail":"Now enjoy Weekend Data roll-over + 1.5 GB/Day Data + Truly Unlimited FREE Local/ STD/Roaming Calls to all Networks + 100 Local & National SMS/Day Pack Valid for 56 Days,Vi Movies & TV access","Amount":"399","Validity":"56 Days"},
+
+{"provider_id": 2,"Detail":"Now enjoy Weekend Data roll-over + DOUBLE DATA i.e, 2 + 2 = 4GB/Day + Truly Unlimited FREE Local/ STD/Roaming Calls to all Networks + 100 Local & National SMS/Day. Pack Validity for 56 Days, Vi Movies & TV access.","Amount":"449","Validity":"56 Days"},
+
+{"provider_id": 2,"Detail":"Now enjoy Weekend Data roll-over + 1.5 GB/Day Data + Truly Unlimited FREE Local/ STD/Roaming Calls to all Networks + 100 Local & National SMS/Day Pack Valid for 84 Days,Vi Movies & TV access","Amount":"599","Validity":"84 Days"}
+
+
+
+],
+
+
+"Bplans":[
+  {"provider_id": 8, "Detail":"2G/3G Data: 2 GB / Day. Unlimited Data Pack. Post FUP Speed: 40 Kbps. EROS NOW Entertainment Services.","Amount":"98","Validity":"22 Days"},
+
+{"provider_id": 8, "Detail":"Local, STD & Roaming Calls (including Mumbai and Delhi): Unlimited. Free PRBT. (Enjoy FREE BSNL Caller Tunes With Unlimited Songs change)","Amount":"99","Validity":"22 Days"},
+
+{"provider_id": 8, "Detail":"Local, STD & Roaming Calls (including Mumbai and Delhi): Unlimited. Free PRBT. (Enjoy FREE BSNL Caller Tunes With Unlimited Songs change)","Amount":"159","Validity":"24 Days"},
+
+{"provider_id": 8, "Detail":"For Validity Extension / Plan Migration customers only. Unlimited voice facility including MTNL network in Mumbai and Delhi with FUP(Customer using more than 250minutes outgoing minutes [(local + STD + Outgoing Roaming) (On-net/off-net) as per Unlimited recharge benefits] in a day will be charged at base plan tariff after consumption of 250minutes for the rest of the day till midnight 0.00hrs.).Unlimited Data with speed restricted to 40 Kbps after 1GB Data/day.SMS 100 SMS/day including MTNL area Mumbai and Delhi.Freebies validity 81 days.EROS NOW Entertainment services.. Applicable only for PLAN 429.","Amount":"429","Validity":"81 Days"},
+
+{"provider_id": 8, "Detail":"For Validity Extension / Plan Migration customers only. 250 Minutes Free any-net(Local/STD) Voice calls/Day in Home LSA and Roaming including Mumbai and Delhi.Unlimited Data with speed restricted to 40 Kbps after 1.5GB Data/day.SMS 100 SMS/day including MTNL area Mumbai and Delhi.Freebies validity 90 days.. Applicable only for PV_485.","Amount":"485","Validity":"90 Days"},
+
+{"provider_id": 8, "Detail":"For Validity Extension / Plan Migration customers only. 250 Minutes Free any-net(Local/STD) Voice calls/Day in Home LSA and Roaming including Mumbai and Delhi.Unlimited data(speed restricted to 40 kbps after 2GB/day).SMS 100 SMS/day including MTNL area Mumbai and Delhi + BSNL tune + Zing.. Applicable only for Plan_Voucher_666.","Amount":"666","Validity":"120 Days"},
+
+{"provider_id": 8, "Detail":"For Validity Extension / Plan Migration customers only. Unlimited free voice calls in home and national roaming including MTNL network roaming area of Delhi and Mumbai {The FUP condition of Customer using more than 250minutes outgoing minutes [(Local+STD+ OG roaming)(On-net/off-net) as per Unlimited recharge benefits] in a day will be charged at base plan tariff.after consumption of 250mins for the rest of the day till midnight 0.00hrs }.Unlimited free data with speed reduced to 80 kbps after 0.5GB/day.100 SMS/day is including MTNL area Mumbai and Delhi.Free PRBT for first 60 days.Base plan/All other tariff terms and Conditions .. Applicable only for PV_FRC_699.","Amount":"699","Validity":"160 Days"}
+
+
+
+
+],
+
+
+"Mplans":[
+  {"provider_id": 7, "Detail":"All Mobile calls @ 1.0 p/sec. All Landline calls @ 2.0 p/sec","Amount":"45","Validity":"56 Days"},
+
+{"provider_id": 7, "Detail":"Regular Talktime","Amount":"50","Validity":"NA"},
+
+{"provider_id": 7, "Detail":"Data: 3 GB","Amount":"51","Validity":"7 Days"},
+
+{"provider_id": 7, "Detail":"SIM Validity Extension by 180 days","Amount":"85","Validity":"180 Days"},
+
+{"provider_id": 7, "Detail":"Data: 5 GB","Amount":"99","Validity":"28 Days"},
+
+{"provider_id": 7, "Detail":"2G/3G Data: 2 GB / Day. Voice-Unlimited Free. SMS: 100 SMS / Day. (Home & MTNL Delhi N/w) All other special numbers (e.g. 139) will be charged as per tariff. Note-The benefit of free calling & SMS will be available from home network and from MTNL Delhi n/w; during roaming other than MTNL Delhi, standard roaming charges will be applicable.","Amount":"1499","Validity":"365 Days"}
+
+
+],
+
+
+
+"banks": [
+  {
+      "id": 2,
+      "bank_name": "AXIS BANK",
+      "bank_code": "UTIB",
+      "ifsc": "UTIB0000073",
+      "bankImg": "http://localhost:4200/assets/axis.png"
+  },
+  {
+      "id": 3,
+      "bank_name": "BANK OF BARODA (BOB)",
+      "bank_code": "BARB",
+      "ifsc": "BARB0ALIDEL",
+      "bankImg": "http://localhost:4200/assets/baroda.png"
+  },
+  {
+      "id": 6,
+      "bank_name": "CITI BANK",
+      "bank_code": "CITI",
+      "ifsc": "CITI0000002",
+      "bankImg": "http://localhost:4200/assets/city.png"
+  },
+  {
+      "id": 7,
+      "bank_name": "HDFC BANK LTD",
+      "bank_code": "HDFC",
+      "ifsc": "HDFC0000001",
+      "bankImg": "http://localhost:4200/assets/hdfc.png"
+  },
+  {
+      "id": 8,
+      "bank_name": "ICICI BANK LTD",
+      "bank_code": "ICIC",
+      "ifsc": "ICIC0000001",
+      "bankImg": "http://localhost:4200/assets/icici.png"
+  },
+  {
+      "id": 12,
+      "bank_name": "PUNJAB NATIONAL BANK (PNB)",
+      "bank_code": "PUNB",
+      "ifsc": "PUNB0012000",
+      "bankImg": "http://localhost:4200/assets/pnb.png"
+  },
+  {
+      "id": 14,
+      "bank_name": "UNION BANK OF INDIA (UBI)",
+      "bank_code": "UBIN",
+      "ifsc": "UBIN0564273",
+      "bankImg": "http://localhost:4200/assets/union.png"
+  },
+  {
+      "id": 16,
+      "bank_name": "YES BANK",
+      "bank_code": "YESB",
+      "ifsc": "YESB0000002",
+      "bankImg": "http://localhost:4200/assets/yes.png"
+  },
+  {
+      "id": 30,
+      "bank_name": "CANARA BANK",
+      "bank_code": "CNRB",
+      "ifsc": "CNRB0002886",
+      "bankImg": "http://localhost:4200/assets/canra.png"
+  },
+  {
+      "id": 53,
+      "bank_name": "KOTAK MAHINDRA BANK (KMB)",
+      "bank_code": "KKBK",
+      "ifsc": "KKBK0000181",
+      "bankImg": "http://localhost:4200/assets/kotak.png"
+  },
+  {
+      "id": 77,
+      "bank_name": "SYNDICATE BANK",
+      "bank_code": "SYNB",
+      "ifsc": "SYNB0008816",
+      "bankImg": "http://localhost:4200/assets/syndicate.png"
+  },
+  {
+      "id": 101,
+      "bank_name": "STATE BANK OF INDIA (SBI)",
+      "bank_code": "SBIN",
+      "ifsc": "SBIN0008079",
+      "bankImg": "http://localhost:4200/assets/sbi.png"
+  },
+
+  {
+      "id": 253,
+      "bank_name": "PAYTM Bank",
+      "bank_code": "PAYT",
+      "ifsc": "PYTM0123456",
+      "bankImg": "http://localhost:4200/assets/paytm.png"
+  },
+
+  {
+    "id": 1253,
+    "bank_name": "Ujjivan Bank",
+    "bank_code": "UJVN",
+    "ifsc": "UJVN0123456",
+    "bankImg": "http://localhost:4200/assets/ujjivan.png"
+}
+],
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    "profile": {
+      "name": "typicode"
+    }
+  }

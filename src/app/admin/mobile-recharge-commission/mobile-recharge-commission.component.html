@@ -1,0 +1,214 @@
+<!-- <div style="margin-left: 20px;margin-top: 50px;"> -->
+  <div class="main-content">
+  <div >
+    <h4 class="main-header">Mobile Recharge Commission Details</h4>
+       <!-- <button (click)="addMobile()" class="btn btn-primary" style="margin-left: 900px;">Add Mobile Provider</button>    -->
+    </div>
+    
+    
+
+
+     <p-table [value]="mobileList">
+        <!-- <ng-template pTemplate="caption">
+          
+              </ng-template> -->
+      <ng-template pTemplate="header">
+          <tr>
+            
+                   
+            <th >Provider Name</th>
+            <th >Net Commission %</th>
+
+            <th >Admin Commission %</th>
+
+            <th >Dist Commission %</th>
+            <th >Retailer Commission%</th>
+    
+           
+           
+        <th ></th>
+        <!-- <th ></th> -->
+    
+        
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-mobileList>
+          <tr>
+            
+            <td>{{mobileList.providerName}}</td>
+    
+            <td>{{mobileList.commission}}</td>
+
+            
+
+            <td>{{mobileList.adminCommPert}}</td>
+
+            <td>{{mobileList.distCommPert}}</td>
+
+            <td>{{mobileList.retCommPert}}</td>
+            
+    
+           <td> <a (click)="editMobile(mobileList)" class="btn btn-sm btn-primary mr-1">Update</a></td>
+            
+           <!-- <td> <a class="btn btn-sm btn-primary mr-1">Delete</a></td>             -->
+          </tr>
+      </ng-template>
+    </p-table> 
+    
+    
+    <p-dialog header="Update Mobile Recharge Commission%" [(visible)]="display">
+         
+        
+    
+         
+    
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.form)" novalidate>
+           
+        <div>
+        <div>
+          <label>Provider Name:</label> 
+        </div>   
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !providername.valid }">
+            
+            <input [disabled]="selectedMobile.providerName" type="text" placeholder="Enter Provider Name" class="form-control" name="providername" [(ngModel)]="selectedMobile.providerName" #providername="ngModel" required />
+            
+            <!-- <div *ngIf="f.submitted && !providername.valid" class="help-block">Provider Name is required</div> -->
+            </div>
+          </div>
+
+            <div>
+              <div>
+            <label>Net Commission:</label> 
+          </div>      
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !commission.valid }">
+            
+          <input type="text" placeholder="Net Commission%" class="form-control" name="commission" [(ngModel)]="selectedMobile.commission" #commission="ngModel" required />
+         
+          <!-- <div *ngIf="f.submitted && !commission.valid" class="help-block">Net Commission is required</div> -->
+      </div>
+    </div>
+
+<div>
+    <div>
+      <label>Admin Commission:</label> 
+    </div>
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !admincommpert.valid }">
+            
+        <input type="text" (change)="onChangeEvent1($event)" placeholder="Admin Commission%" class="form-control" name="admincommpert" [(ngModel)]="selectedMobile.adminCommPert" #admincommpert="ngModel" required />
+       
+        <!-- <div *ngIf="f.submitted && !admincommpert.valid" class="help-block">Admin Commission% is required</div> -->
+    </div>
+
+  </div>
+
+
+  <div>
+  <div>
+    <label>Dist Commission:</label> 
+  </div>
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !distcommpert.valid }">
+            
+      <input type="text" (change)="onChangeEvent1($event)" placeholder="Dist Commission%" class="form-control" name="distcommpert" [(ngModel)]="selectedMobile.distCommPert" #distcommpert="ngModel" required />
+     
+      <!-- <div *ngIf="f.submitted && !distcommpert.valid" class="help-block">Dist Commission% is required</div> -->
+  </div>
+
+  </div>
+
+<div>
+  <div>
+    <label>Retailer Commission:</label> 
+  </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !retcommpert.valid }">
+            
+      <input type="text" placeholder="Retailer Commission%" class="form-control" name="retcommpert" [(ngModel)]="selectedMobile.retCommPert" #retcommpert="ngModel" required />
+     
+      <!-- <div *ngIf="f.submitted && !retcommpert.valid" class="help-block">Retailer Commission% is required</div> -->
+  </div>
+</div>
+
+
+      <div class="form-group">
+        <div class="row">
+               <button class="btn btn-primary" style="margin-left: 20px;">Update</button>
+               <button class="btn btn-primary" (click)="closePopup()" style="margin-left: 20px;">Cancel</button>
+         </div>
+       </div>
+    
+    
+    
+    
+    
+    
+       
+    
+        </form> 
+    
+      </p-dialog>
+      
+      
+    <p-dialog header="Add Mobile Recharge Provider" [(visible)]="displayNew">
+         
+    
+      <form name="form" #f1="ngForm" (ngSubmit)="f1.form.valid && onSubmit2()" novalidate>
+           
+        <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !providerid.valid }">
+            
+          <input type="text" placeholder="Enter Provider ID" class="form-control" name="providerid" [(ngModel)]="model.providerID" #providerid="ngModel" required />
+          
+          <!-- <div *ngIf="f1.submitted && !providerid.valid" class="help-block">Provider ID is required</div> -->
+          </div>
+     
+
+
+        <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !providername.valid }">
+            
+            <input type="text" placeholder="Enter Provider Name" class="form-control" name="providername" [(ngModel)]="model.providerName" #providername="ngModel" required />
+            
+            <!-- <div *ngIf="f1.submitted && !providername.valid" class="help-block">Provider Name is required</div> -->
+            </div>
+       
+       
+        <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !commission.valid }">
+            
+          <input type="text" placeholder="Net Commission%" class="form-control" name="commission" [(ngModel)]="model.commission" #commission="ngModel" required />
+         
+          <!-- <div *ngIf="f1.submitted && !commission.valid" class="help-block">Net Commission is required</div> -->
+      </div>
+
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !admincommpert.valid }">
+            
+        <input type="text" (change)="onChangeEvent2($event)" placeholder="Admin Commission%" class="form-control" name="admincommpert" [(ngModel)]="model.adminCommPert" #admincommpert="ngModel" required />
+       
+        <!-- <div *ngIf="f1.submitted && !admincommpert.valid" class="help-block">Admin Commission% is required</div> -->
+    </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !distcommpert.valid }">
+            
+      <input type="text" (change)="onChangeEvent1($event)" placeholder="Dist Commission%" class="form-control" name="distcommpert" [(ngModel)]="model.distCommPert" #distcommpert="ngModel" required />
+     
+      <!-- <div *ngIf="f1.submitted && !distcommpert.valid" class="help-block">Dist Commission% is required</div> -->
+  </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !retcommpert.valid }">
+            
+      <input [disabled]="model.retCommPert" type="text" placeholder="Retailer Commission%" class="form-control" name="retcommpert" [(ngModel)]="model.retCommPert" #retcommpert="ngModel" required />
+     
+      <!-- <div *ngIf="f1.submitted && !retcommpert.valid" class="help-block">Retailer Commission% is required</div> -->
+  </div>
+    
+      <div class="form-group">
+        <div class="row">
+               <button class="btn btn-primary" style="margin-left: 20px;">Add</button>
+               <button class="btn btn-primary" (click)="closePopup2()" style="margin-left: 20px;">Cancel</button>
+         </div>
+       </div>
+    
+    
+        </form> 
+    
+      </p-dialog>
+    
+    </div>

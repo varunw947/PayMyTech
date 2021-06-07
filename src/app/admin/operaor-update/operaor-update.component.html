@@ -1,0 +1,281 @@
+<div class="main-content">
+    <div>
+    <h4 class="main-header">Operator Details</h4>
+    <button (click)="addOperator()" class="btn btn-primary" style="margin-left: 900px;">Add New Operator</button>
+    </div>
+    
+    
+
+
+     <p-table [value]="operatorList">
+        <!-- <ng-template pTemplate="caption">
+          
+              </ng-template> -->
+      <ng-template pTemplate="header">
+          <tr>
+            <th>Operator</th>
+                   
+            <th >Service</th>
+
+            <th>IsBBPS</th>
+                   
+            <th >IsValidate</th>
+
+            <th>IsPartial</th>
+                   
+            <th >IsRandom</th>
+
+            <th >Operator Type</th>
+
+
+
+            <th >Min Amount</th>
+
+            <th>Max Amount</th>
+                   
+            <th >Min Length</th>
+
+            <th>Max Length</th>
+                   
+            <th >Status</th>
+
+            <th >Reject Amount</th>
+    
+            
+           
+        <th ></th>
+        <!-- <th ></th> -->
+    
+        
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-operatorList>
+          <tr>
+            <td>{{operatorList.operatorName}}</td>
+            <td>{{operatorList.service}}</td>
+
+            <td>{{operatorList.isBBPS}}</td>
+            <td>{{operatorList.isValidate}}</td>
+
+            <td>{{operatorList.isPartial}}</td>
+           
+            
+            <td>{{operatorList.isRandom}}</td>
+
+            <td>{{operatorList.operatorType}}</td>
+
+
+
+            <td>{{operatorList.minAmount}}</td>
+
+            <td>{{operatorList.maxAmount}}</td>
+            <td>{{operatorList.minLength}}</td>
+
+            <td>{{operatorList.maxLength}}</td>
+           
+            
+            <td>{{operatorList.status}}</td>
+
+            <td>{{operatorList.rejectAmount}}</td>
+    
+    
+            
+    
+            
+            
+           <td> <a (click)="editOperator(operatorList)" class="btn btn-sm btn-primary mr-1">Update</a></td>
+            
+           <!-- <td> <a class="btn btn-sm btn-primary mr-1">Delete</a></td>             -->
+          </tr>
+      </ng-template>
+    </p-table> 
+    
+    
+    <p-dialog header="Update Operator" [(visible)]="display">
+         
+      
+         
+    
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.form)" novalidate>
+           
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !operatorname.valid }">
+            
+          <input type="text" placeholder="Operator Name" class="form-control" name="operatorname" [(ngModel)]="selectedOperator.operatorName" #operatorname="ngModel" required />
+         
+          <div *ngIf="f.submitted && !operatorname.valid" class="help-block">Operator Name is required</div>
+      </div>
+    
+    
+      <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !service.valid }">
+            
+        <input type="text" placeholder="Enter Service" class="form-control" name="service" [(ngModel)]="selectedOperator.service" #service="ngModel" required />
+       
+        <div *ngIf="f.submitted && !service.valid" class="help-block">Service is required</div>
+    </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !minamount.valid }">
+            
+        <input type="text" placeholder="Enter Min Amount" class="form-control" name="minamount" [(ngModel)]="selectedOperator.minAmount" #minamount="ngModel" required />
+       
+        <div *ngIf="f.submitted && !minamount.valid" class="help-block">Minium Amount is required</div>
+    </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !maxamount.valid }">
+            
+        <input type="text" placeholder="Enter Max Amount" class="form-control" name="maxamount" [(ngModel)]="selectedOperator.maxAmount" #maxamount="ngModel" required />
+       
+        <div *ngIf="f.submitted && !maxamount.valid" class="help-block">Max Amount is required</div>
+    </div>
+
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !minlength.valid }">
+            
+        <input type="text" placeholder="Enter Min Length" class="form-control" name="minlength" [(ngModel)]="selectedOperator.minLength" #minlength="ngModel" required />
+       
+        <div *ngIf="f.submitted && !minlength.valid" class="help-block">Minium Length is required</div>
+    </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !maxlength.valid }">
+            
+        <input type="text" placeholder="Enter Max Length" class="form-control" name="maxlength" [(ngModel)]="selectedOperator.maxLength" #maxlength="ngModel" required />
+       
+        <div *ngIf="f.submitted && !maxlength.valid" class="help-block">Max Length is required</div>
+    </div>
+
+    
+
+
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !operatortype.valid }">
+            
+        <input [disabled]="selectedOperator.operatorType" type="text" placeholder="Enter Operator Type" class="form-control" name="operatortype" [(ngModel)]="selectedOperator.operatorType" #operatortype="ngModel" required />
+        
+        <!-- <div *ngIf="f.submitted && !operatortype.valid" class="help-block">Operator Type is required</div> -->
+        </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !status.valid }">
+            
+        <input [disabled]="selectedOperator.status" value="Active" type="text" placeholder="Enter Status" class="form-control" name="status" [(ngModel)]="selectedOperator.status" #status="ngModel" required />
+        
+        <!-- <div *ngIf="f.submitted && !status.valid" class="help-block">Status is required</div> -->
+        </div>
+
+
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !rejectamount.valid }">
+            
+            <input type="text" placeholder="Enter Reject Amount" class="form-control" name="rejectamount" [(ngModel)]="selectedOperator.rejectAmount" #rejectamount="ngModel" required />
+           
+            <div *ngIf="f.submitted && !rejectamount.valid" class="help-block">Reject Amount is required</div>
+        </div>
+
+
+
+    <div class="form-group">
+     <div class="row">
+            <button class="btn btn-primary" style="margin-left: 20px;">Update</button>
+            <button class="btn btn-primary" (click)="closePopup()" style="margin-left: 20px;">Cancel</button>
+      </div>
+    </div>
+    
+    
+       
+    
+        </form> 
+    
+      </p-dialog>
+      
+      <p-dialog header="Add Operator" [(visible)]="displayNew">
+         
+      
+         
+    
+        <form name="form" #f1="ngForm" (ngSubmit)="f1.form.valid && onSubmit2()" novalidate>
+             
+           
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !operatorname.valid }">
+            
+                <input type="text" placeholder="Operator Name" class="form-control" name="operatorname" [(ngModel)]="model.operatorName" #operatorname="ngModel" required />
+               
+                <!-- <div *ngIf="f1.submitted && !operatorname.valid" class="help-block">Operator Name is required</div> -->
+            </div>
+          
+          
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !service.valid }">
+                  
+              <input type="text" placeholder="Enter Service" class="form-control" name="service" [(ngModel)]="model.service" #service="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !service.valid" class="help-block">Service is required</div> -->
+          </div>
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !minamount.valid }">
+                  
+              <input type="text" placeholder="Enter Min Amount" class="form-control" name="minamount" [(ngModel)]="model.minAmount" #minamount="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !minamount.valid" class="help-block">Minium Amount is required</div> -->
+          </div>
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !maxamount.valid }">
+                  
+              <input type="text" placeholder="Enter Max Amount" class="form-control" name="maxamount" [(ngModel)]="model.maxAmount" #maxamount="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !maxamount.valid" class="help-block">Max Amount is required</div> -->
+          </div>
+      
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !minlength.valid }">
+                  
+              <input type="text" placeholder="Enter Min Length" class="form-control" name="minlength" [(ngModel)]="model.minLength" #minlength="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !minlength.valid" class="help-block">Minium Length is required</div> -->
+          </div>
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !maxlength.valid }">
+                  
+              <input type="text" placeholder="Enter Max Length" class="form-control" name="maxlength" [(ngModel)]="model.maxLength" #maxlength="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !maxlength.valid" class="help-block">Max Length is required</div> -->
+          </div>
+      
+          
+      
+      
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !operatortype.valid }">
+                  
+              <input [disabled]="selectedOperator.operatorType" type="text" placeholder="Enter Operator Type" class="form-control" name="operatortype" [(ngModel)]="model.operatorType" #operatortype="ngModel" required />
+              
+              <!-- <div *ngIf="f1.submitted && !operatortype.valid" class="help-block">Operator Type is required</div> -->
+              </div>
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !status.valid }">
+                  
+              <input [disabled]="model.status" value="Active" type="text" placeholder="Enter Status" class="form-control" name="status" [(ngModel)]="model.status" #status="ngModel" required />
+              
+              <!-- <div *ngIf="f1.submitted && !status.valid" class="help-block">Status is required</div> -->
+              </div>
+      
+      
+              <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !rejectamount.valid }">
+                  
+                  <input type="text" placeholder="Enter Reject Amount" class="form-control" name="rejectamount" [(ngModel)]="model.rejectAmount" #rejectamount="ngModel" required />
+                 
+                  <!-- <div *ngIf="f1.submitted && !rejectamount.valid" class="help-block">Reject Amount is required</div> -->
+              </div>
+      
+
+
+       <div class="form-group">
+       <div class="row">
+              <button class="btn btn-primary" style="margin-left: 20px;">Add</button>
+              <button class="btn btn-primary" (click)="closePopup2()" style="margin-left: 20px;">Cancel</button>
+        </div>
+      </div> 
+      
+      
+         
+      
+          </form> 
+      
+        </p-dialog>
+    
+    </div>

@@ -1,0 +1,185 @@
+<div class="main-content">
+    <div>
+    <h4 class="main-header">SMS Details</h4>
+    <button (click)="addSms()" class="btn btn-primary" style="margin-left: 900px;">Add New SMS</button>
+    </div>
+    
+    
+
+
+     <p-table [value]="smsList">
+        <!-- <ng-template pTemplate="caption">
+          
+              </ng-template> -->
+      <ng-template pTemplate="header">
+          <tr>
+            <th>API</th>
+                   
+            <th >User Name</th>
+            <th >Password</th>
+    
+            <th >SenderID</th>
+
+            <th >Status</th>
+    
+            <th >Balance</th>
+           
+        <th ></th>
+        <!-- <th ></th> -->
+    
+        
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-smsList>
+          <tr>
+            <td>{{smsList.api}}</td>
+            <td>{{smsList.userName}}</td>
+    
+            <td>{{smsList.password}}</td>
+            <td>{{smsList.senderID}}</td>
+
+            <td>{{smsList.status}}</td>
+            <td>{{smsList.balance}}</td>
+    
+            
+            
+           <td> <a (click)="editSms(smsList)" class="btn btn-sm btn-primary mr-1">Update</a></td>
+            
+           <!-- <td> <a class="btn btn-sm btn-primary mr-1">Delete</a></td>             -->
+          </tr>
+      </ng-template>
+    </p-table> 
+    
+    
+    <p-dialog header="Update SMS" [(visible)]="display">
+         
+      
+         
+    
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.form)" novalidate>
+           
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !api.valid }">
+            
+          <input type="text" placeholder="API" class="form-control" name="api" [(ngModel)]="selectedSms.api" #api="ngModel" required />
+         
+          <div *ngIf="f.submitted && !api.valid" class="help-block">API is required</div>
+      </div>
+    
+    
+      <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            
+        <input type="text" placeholder="Enter Sms Desc." class="form-control" name="username" [(ngModel)]="selectedSms.userName" #username="ngModel" required />
+       
+        <div *ngIf="f.submitted && !username.valid" class="help-block">User Name is required</div>
+    </div>
+    
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            
+      <input type="text" placeholder="Enter Password" class="form-control" name="password" [(ngModel)]="selectedSms.password" #password="ngModel" required />
+     
+      <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+    </div>
+    
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !senderid.valid }">
+            
+    <input type="text" placeholder="Enter SenderID" class="form-control" name="senderid" [(ngModel)]="selectedSms.senderID" #senderid="ngModel" required />
+    
+    <div *ngIf="f.submitted && !senderid.valid" class="help-block">SenderID is required</div>
+    </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !status.valid }">
+            
+        <input [disabled]="selectedSms.status" value="Active" type="text" placeholder="Enter Status" class="form-control" name="status" [(ngModel)]="selectedSms.status" #status="ngModel" required />
+        
+        <!-- <div *ngIf="f.submitted && !status.valid" class="help-block">Status is required</div> -->
+        </div>
+
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !balance.valid }">
+            
+            <input type="text" placeholder="Enter Balance" class="form-control" name="balance" [(ngModel)]="selectedSms.balance" #balance="ngModel" required />
+            
+            <div *ngIf="f.submitted && !balance.valid" class="help-block">Balance is required</div>
+            </div>
+    
+    
+    
+    <div class="form-group">
+     <div class="row">
+            <button class="btn btn-primary" style="margin-left: 20px;">Update</button>
+            <button class="btn btn-primary" (click)="closePopup()" style="margin-left: 20px;">Cancel</button>
+      </div>
+    </div>
+    
+    
+       
+    
+        </form> 
+    
+      </p-dialog>
+      
+      <p-dialog header="Add Sms" [(visible)]="displayNew">
+         
+      
+         
+    
+        <form name="form" #f1="ngForm" (ngSubmit)="f1.form.valid && onSubmit2()" novalidate>
+             
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !api.valid }">
+            
+                <input type="text" placeholder="API" class="form-control" name="api" [(ngModel)]="model.api" #api="ngModel" required />
+               
+                <!-- <div *ngIf="f1.submitted && !api.valid" class="help-block">API is required</div> -->
+            </div>
+          
+          
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !username.valid }">
+                  
+              <input type="text" placeholder="Enter User Name" class="form-control" name="username" [(ngModel)]="model.userName" #username="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !username.valid" class="help-block">User Name is required</div> -->
+          </div>
+          
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !password.valid }">
+                  
+            <input type="text" placeholder="Enter Password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+           
+            <!-- <div *ngIf="f1.submitted && !password.valid" class="help-block">Password is required</div> -->
+          </div>
+          
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !senderid.valid }">
+                  
+          <input type="text" placeholder="Enter SenderID" class="form-control" name="senderid" [(ngModel)]="model.senderID" #senderid="ngModel" required />
+          
+          <!-- <div *ngIf="f1.submitted && !senderid.valid" class="help-block">SenderID is required</div> -->
+          </div>
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !status.valid }">
+                  
+              <input [disabled]="model.status" type="text" placeholder="Enter Status"  class="form-control" name="status" [(ngModel)]="model.status" #status="ngModel" required />
+              
+              <!-- <div *ngIf="f1.submitted && !status.valid" class="help-block">Status is required</div> -->
+              </div>
+      
+              <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !balance.valid }">
+                  
+                  <input type="text" placeholder="Enter Balance" class="form-control" name="balance" [(ngModel)]="model.balance" #balance="ngModel" required />
+                  
+                  <!-- <div *ngIf="f1.submitted && !balance.valid" class="help-block">Balance is required</div> -->
+                  </div>
+            
+      
+       <div class="form-group">
+       <div class="row">
+              <button class="btn btn-primary" style="margin-left: 20px;">Add</button>
+              <button class="btn btn-primary" (click)="closePopup2()" style="margin-left: 20px;">Cancel</button>
+        </div>
+      </div> 
+      
+      
+         
+      
+          </form> 
+      
+        </p-dialog>
+    
+    </div>

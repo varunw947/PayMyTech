@@ -1,0 +1,65 @@
+
+<div class="main-content login-center">
+
+    <div class="card text-center">
+        <h4 class="card-header-dist">Sign In</h4>
+        <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    
+                    <input type="text" placeholder="Mobile" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+                    <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobile.errors.required">Mobile No. is required</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                   
+                    <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" value="Remember me" /> Remember me
+                   <a routerLink="../forget" class="btn btn-link">Forget Password?</a> 
+                </div>
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-primary w-100">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Login
+                    </button>
+                    <!-- <a routerLink="../register" class="btn btn-link">Register</a> -->
+                </div>
+                <div class="form-group">
+                    Not a member?
+                   <a routerLink="../retailerregister" class="btn btn-link">Retailer Register</a> 
+                </div>
+            </form>
+        </div>
+    
+    
+        </div>
+    
+    </div>
+         
+    <!-- <div id="footer" style="
+     position: absolute;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+      
+        margin-top: 50px;
+    background:#000; text-align: center;">
+    
+    <div class="col-md-12">
+      <div class="center" style="display: inline-flex;margin-top:15px ;">
+      <p style="color:#fff">  @CopyRight 2021  </p>
+      <a routerLink="/account/terms" style="color:#fff">|  Terms & Conditions |</a>
+      <a routerLink="./faq" style="color:#fff">  FAQ  |</a>
+    </div>
+    </div>
+    
+    </div>  -->
+    

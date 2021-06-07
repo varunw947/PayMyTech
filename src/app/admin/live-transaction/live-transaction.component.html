@@ -1,0 +1,51 @@
+<!-- <div style="max-width: 1140px;margin:0px auto"> -->
+   
+    
+    <div class="main-content">
+    
+        
+        <div class="col-md-12">
+        
+            
+        
+                
+                    <h4 class="main-header"> Live Transactions Report</h4>
+    <div class="row">
+                    <div class="p-3 w-50">
+                        <input type="text"
+                        ngxDaterangepickerMd
+                        [(ngModel)]="selected"
+                        [showCustomRangeLabel]="true"
+                        [alwaysShowCalendars]="true"
+                        [showRangeLabelOnInput]="true"
+                        [locale]="{applyLabel: 'Apply', clearLabel: 'All', format: 'DD-MM-YYYY'}"
+                        [ranges]="ranges"
+                        [linkedCalendars]="false" 
+                        [showClearButton]="true"
+                       
+                        (datesUpdated)="bindLiveTransactionReportByDate()"
+                        placeholder="Filter by Date" class="form-control"/>
+                    </div>
+    
+                    <label class="p-3 ">Select Status</label>
+                    
+    <div class="p-3 ">
+                    <select (change)="getName($event)">  
+                        <option *ngFor="let prod of ProductHeader">{{prod.name}} </option>  
+                </select> 
+                
+            </div>
+    
+        </div>
+                    <grid-control [cols]="colms" [data]="data" [IsEdit]="false" [dynamicExportFileName]="reportName"></grid-control>
+                   
+        </div>  
+        
+                
+        
+           
+        
+        
+        </div>
+        
+       

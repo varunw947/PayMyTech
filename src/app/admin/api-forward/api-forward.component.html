@@ -1,0 +1,71 @@
+<div class="main-content">
+    <div class="shadow main-header">
+    <h2>API Forwarding</h2>
+    </div>
+    
+    <div class="shadow main-body">
+        
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !service.valid }">
+            
+            <select class="form-control" (change)="getServiceName($event)" name="service" [(ngModel)]="ServiceName" #service="ngModel" required>
+              <option [disabled]="ServiceName" value="undefined">Select Service</option>
+            
+              <option *ngFor="let pvd of ServiceHeader" [value]="pvd.serviceName">{{pvd.serviceName}}</option>
+            </select>
+            <div *ngIf="f.submitted && !service.valid" class="help-block">Service is required</div>
+        </div>
+       
+
+        
+        
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !provider.valid }">
+            
+            <select class="form-control" (change)="getProviderName($event)" name="provider" [(ngModel)]="ProviderName" #provider="ngModel" required>
+              <option [disabled]="ProviderName" value="undefined">Select Provider</option>
+            
+              <option *ngFor="let pvd of ProviderHeader" [value]="pvd.providerName">{{pvd.providerName}}</option>
+            </select>
+            <div *ngIf="f.submitted && !provider.valid" class="help-block">Provider is required</div>
+        </div>
+
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !api.valid }">
+            
+            <select class="form-control" (change)="getAPIName($event)" name="api" [(ngModel)]="ApiName" #api="ngModel" required>
+              <option [disabled]="ApiName" value="undefined">Select API</option>
+            
+              <option *ngFor="let pvd of ApiProviderHeader" [value]="pvd.apiName">{{pvd.apiName}}</option>
+            </select>
+            <div *ngIf="f.submitted && !api.valid" class="help-block">API is required</div>
+        </div>
+       
+       
+    
+        <div class="row">
+          <div class="div-marginlt">
+          <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Update API
+          </button>
+          </div>
+    
+        </div>
+    
+        
+          
+        </div>
+    
+    
+        
+    </form>
+    
+    
+    
+      
+        
+      </div>
+    
+    </div>

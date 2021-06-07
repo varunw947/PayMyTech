@@ -1,0 +1,20 @@
+<div class="row main-content">
+
+    <div class="col-lg-4"  *ngFor="let ut2 of utilityList">
+        <div style="text-align:center">
+          <a (click)="gotoRecharge(ut2.moduleID)"><img  src="/assets/{{ut2.moduleImg}}" style="vertical-align:middle;margin:0px 50px" alt=""></a>
+    
+          <div class="card-body">
+         
+            <h5 class="card-title">
+              
+              <a (click)="gotoRecharge(ut2.moduleID)">{{ut2.moduleName}}</a>
+            </h5>
+            
+           
+          </div>
+          
+        </div>
+      </div>
+    
+    </div>

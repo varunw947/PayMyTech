@@ -1,0 +1,104 @@
+<!-- <div style="margin-left: 20px;margin-top: 50px;"> -->
+   
+    <div class="main-content">
+    <h2 class="main-header">Distributor Sales Report</h2>
+
+    <!-- <div class="form-group" style="border:0px" > 
+        <div class=" col-sm-2 pull-left">
+           
+            Date From: <input class="form-control" placeholder="dd-mm-yyyy"
+            name="dp" [(ngModel)]="dateFrom" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+        </div>
+        <div class=" col-sm-2 pull-left">
+           Date To:<input class="form-control" placeholder="dd-mm-yyyy"
+           name="dp1" [(ngModel)]="dateTo" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()">
+        </div>
+
+       
+       
+        <div class=" col-sm-2 pull-left" style="padding-top: 20px;">
+                <input type="button" class="btn btn-info" value="Search" (click)="search()"/>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="clearfix"></div> -->
+<div class="col-md-12">
+    <div class="p-3 w-50">
+        <input type="text"
+        ngxDaterangepickerMd
+        [(ngModel)]="selected"
+        [showCustomRangeLabel]="true"
+        [alwaysShowCalendars]="true"
+        [showRangeLabelOnInput]="true"
+        [locale]="{applyLabel: 'Apply', clearLabel: 'All', format: 'DD-MM-YYYY'}"
+        [ranges]="ranges"
+        [linkedCalendars]="false" 
+        [showClearButton]="true"
+       
+        (datesUpdated)="bindDistributorReportByDate()"
+        placeholder="All" class="form-control"/>
+    </div>
+  
+</div>
+ 
+
+    <grid-control [cols]="colms" [data]="data" [IsEdit]="false" [dynamicExportFileName]="reportName"></grid-control>
+
+    <!-- <table class="styled-table">
+        <thead>
+            <tr>
+                <th style="width: 10%">Distributor Code</th>
+                <th style="width: 10%">Dist Outlet Name</th>
+                <th style="width: 10%">Unique Code</th>
+                <th style="width: 10%">Dist Name</th>
+                <th style="width: 10%">Dist Outlet Name</th>
+
+                <th style="width: 10%">Location</th>
+                <th style="width: 10%">State</th>
+                <th style="width: 10%">Sales Person</th>
+                
+                <th style="width: 10%">Mobile Trans</th>
+                <th style="width: 10%">Mobile Value</th>
+                <th style="width: 10%">DMT Trans</th>
+                <th style="width: 10%">DMT Value</th>
+                <th style="width: 10%">Bill Trans</th>
+                <th style="width: 10%">Bill Value</th>
+    
+                <th style="width: 10%">PackageType</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dist of distList" class="active-row">
+                <td>{{dist.uniqueCode}}</td>
+                <td>{{dist.distributorName}}</td>
+               
+                <td>{{dist.userName}}</td>
+                <td>{{dist.firstName}}</td>
+                <td>{{dist.outletName}}</td>
+                <td>{{dist.location}}</td>
+                <td>{{dist.state}}</td>
+                <td>{{dist.salesPerson}}</td>
+                
+                <td>{{dist.mobileTotal}}     </td>
+               <td>{{dist.mobileValue}}</td>
+
+               <td>{{dist.dmtTotal}}     </td>
+                <td>{{dist.dmtValue}}</td>
+
+                <td> {{dist.billTotal}}    </td>
+                <td>{{dist.billValue}}</td>
+
+                
+                <td>{{dist.packageType}}</td>
+                
+    
+               
+                
+                
+            </tr>
+           
+        </tbody>
+    </table> -->
+    
+    </div>

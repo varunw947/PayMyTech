@@ -1,0 +1,123 @@
+<!-- <div style="max-width: 1140px;margin:0px auto"> -->
+   
+    
+    <div class="main-content">
+    
+    <!-- <div class="col-md-12">
+        <div class="row">
+    
+        <div class="col-md-3">
+    
+        <div class="text-center" style=" padding:30px;  border: 1px solid #33b5e5;box-shadow: 2px 2px 2px rgb(166, 178, 209);">
+            <span>Total Distributors</span>
+            <H1>{{TotalDistributors}}</H1>
+        </div>
+    
+        </div>
+        <div class="col-md-3">
+            <div class="text-center" style="border: 1px solid #33b5e5;padding: 30px;box-shadow: 2px 2px 2px rgb(166, 178, 209);">
+                <span>Total Retailers</span>
+                <H1>{{TotalRetailers}}</H1>
+            </div>
+        </div>
+        <div class="col-md-3" >
+            
+            <div class="text-center" style=" padding:30px;  border: 1px solid #33b5e5;box-shadow: 2px 2px 2px rgb(166, 178, 209);">
+                <span>Total Sales</span>
+                <H1>{{TotalSales}}</H1>
+            </div>
+        
+        
+        </div>
+        <div class="col-md-3">
+            
+            <div class="text-center" style=" padding:30px;  border: 1px solid #33b5e5;box-shadow: 2px 2px 2px rgb(166, 178, 209);">
+                <span>Total Verified Users</span>
+                <H1>{{VerifiedUsers}}</H1>
+            </div>
+        
+        </div>
+    
+    </div>
+    
+    
+    </div>
+    
+    <div class="col-md-12" style="padding-top: 50px;">
+        <div class="row">
+    
+        <div class="col-md-3">
+    
+        <div class="text-center" style=" padding:30px;  border: 1px solid #33b5e5;box-shadow: 2px 2px 2px rgb(166, 178, 209);">
+            <span>Total Profit</span>
+            <H1>{{TotalProfit}}</H1>
+        </div>
+    
+        </div>
+        <div class="col-md-3">
+            <div class="text-center" style="border: 1px solid #33b5e5;padding: 30px;box-shadow: 2px 2px 2px rgb(166, 178, 209);">
+                <span>Retailer Profit</span>
+                <H1>{{RetailerProfit.toLocaleString()}}</H1>
+            </div>
+        </div>
+        <div class="col-md-3" >
+            
+            <div class="text-center" style=" padding:30px;  border: 1px solid #33b5e5;box-shadow: 2px 2px 2px rgb(166, 178, 209);">
+                <span>Admin Profit</span>
+                <H1>{{AdminProfit.toLocaleString()}}</H1>
+            </div>
+        
+        
+        </div>
+        
+    
+    </div>
+    
+    
+    </div>
+     -->
+    <div class="col-md-12">
+    
+        
+    
+            
+                <h4 class="main-header"> All Recharge Transactions</h4>
+<div class="row">
+                <div class="p-3 w-50">
+                    <input type="text"
+                    ngxDaterangepickerMd
+                    [(ngModel)]="selected"
+                    [showCustomRangeLabel]="true"
+                    [alwaysShowCalendars]="true"
+                    [showRangeLabelOnInput]="true"
+                    [locale]="{applyLabel: 'Apply', clearLabel: 'All', format: 'DD-MM-YYYY'}"
+                    [ranges]="ranges"
+                    [linkedCalendars]="false" 
+                    [showClearButton]="true"
+                   
+                    (datesUpdated)="bindTransactionReportByDate()"
+                    placeholder="Filter by Date" class="form-control"/>
+                </div>
+
+                <label class="p-3 ">Select Status</label>
+                
+<div class="p-3 ">
+                <select (change)="getName($event)">  
+                    <option *ngFor="let prod of ProductHeader">{{prod.name}} </option>  
+            </select> 
+            
+        </div>
+
+    </div>
+                <grid-control [cols]="colms" [data]="data" [IsEdit]="false" [dynamicExportFileName]="reportName"></grid-control>
+               
+    </div>  
+    
+            
+    
+       
+    
+    
+    </div>
+    
+   

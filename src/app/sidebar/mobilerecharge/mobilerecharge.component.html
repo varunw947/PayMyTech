@@ -1,0 +1,127 @@
+<div class="main-content">
+
+<div class="shadow main-header">
+
+<h2>Mobile --> Recharge</h2>
+</div>
+
+<div class="shadow main-body">
+    
+ 
+    
+    <form name="form"  (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+     
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
+        
+        <input type="text" pattern="^\s*(([+]\s?\d[-\s]?\d|0)?\s?\d([-\s]?\d){9}|[(]\s?\d([-\s]?\d)+\s*[)]([-\s]?\d)+)\s*$" placeholder="Mobile Number" class="form-control" name="mobile" [(ngModel)]="Mobile" #mobile="ngModel" required />
+       
+        <div *ngIf="f.submitted && !mobile.valid" class="help-block">Mobile Number is required</div>
+        <div *ngIf="mobile.errors?.pattern" class="help-block" style="color:red">Mobile Number is not valid!</div>
+    </div>
+     
+     
+      
+      
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !provider.valid }">
+         
+          <select class="form-control"  (change)="getProviderName($event)" name="provider" [(ngModel)]="ProviderId" #provider="ngModel" required>
+            <option [disabled]="ProviderId" value="undefined">Select Provider</option>
+          
+            <option *ngFor="let pvd of providerList" [value]="pvd.providerID">{{pvd.providerName}}</option>
+          </select>
+          <div *ngIf="f.submitted && !provider.valid" class="help-block">Provider is required</div>
+      </div>
+
+<div>
+  <a (click)="showPlan()" style="color:blue; margin-left: 0px;">Check Plan</a>
+</div>
+
+<p-dialog header="Choose Plan" [(visible)]="display">
+
+ <div>
+      <!-- <div class="form-group" style="padding-top: 15px;" [ngClass]="{ 'has-error': f.submitted && !circle.valid }">
+         
+        <select class="form-control"  name="circle" [(ngModel)]="CircleId" #circle="ngModel" required>
+          <option [disabled]="CircleId" value="undefined">Select Circle</option>
+        
+          <option *ngFor="let cir of circleList" [value]="cir.circle_id">{{cir.circle_name}}</option>
+        </select>
+        <div *ngIf="f.submitted && !circle.valid" class="help-block">Circle is required</div>
+    </div>  -->
+
+
+      <table class="styled-table">
+        <thead>
+            <tr>
+                <th style="width: 1%"></th> 
+                <th style="width: 1%"></th>                
+                <th style="width: 10%">Amount</th>
+                <th style="width: 10%">Detail</th>
+                <th style="width: 10%">Validity</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let report of planList" (click) = "getAmount(report)" class="active-row">
+              <td>
+                <input type="radio" name="radios" id="radio1" />
+                <label for="radio1"></label>
+              </td>
+
+              <td>
+                <img  src="/assets/{{report.mobImage}}" style="vertical-align:middle;margin:0px 50px; height:50px" alt="">
+              </td>
+                <td>{{report.amount}}</td>
+                <td style="text-align: justify;">{{report.detail}}</td>
+                <td>{{report.validity}}</td>
+                
+                
+            </tr>
+           
+        </tbody>
+    </table>
+
+  </div>
+   
+</p-dialog> 
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !amount.valid }">
+          
+      <input type="number" class="form-control" placeholder="Amount" name="amount" [(ngModel)]="Amount" #amount="ngModel" required />
+      <div *ngIf="f.submitted && !amount.valid" class="help-block">Amount is required</div>
+  </div>
+
+  
+      <div class="row">
+
+        <div class="div-marginlt">
+        <div class="form-group">
+          <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Submit
+        </button>
+        </div>
+
+      </div>
+  
+      <div class="div-marginlt">
+  <div class="form-group">
+        <button class="btn btn-primary" routerLink="/sidebar/home/category"> Cancel </button>
+      </div>
+        
+    </div>
+
+      </div>
+     
+     
+      
+     
+  </form>
+
+
+
+    
+      
+    </div>
+
+
+  </div>  

@@ -1,0 +1,73 @@
+<div class="main-content">
+    <div class="shadow main-header">
+    <h2>Debit</h2>
+    </div>
+    
+    <div class="shadow main-body">
+        
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        
+       
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !api.valid }">
+            
+            <select class="form-control" (change)="getAPIName($event)" name="api" [(ngModel)]="ApiName" #api="ngModel" required>
+              <option [disabled]="ApiName" value="undefined">Select User Type</option>
+            
+              <option *ngFor="let pvd of ApiProviderHeader" [value]="pvd.apiName">{{pvd.apiName}}</option>
+            </select>
+            <div *ngIf="f.submitted && !api.valid" class="help-block">User Type is required</div>
+        </div>
+
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !user.valid }">
+            
+            <select class="form-control" (change)="getUserName($event)" name="user" [(ngModel)]="UserName" #user="ngModel" required>
+              <option [disabled]="UserName" value="undefined">Select User </option>
+            
+              <option *ngFor="let pvd of UserHeader" [value]="pvd.userName">{{pvd.userName}}</option>
+            </select>
+            <div *ngIf="f.submitted && !user.valid" class="help-block">User is required</div>
+        </div>
+
+
+       
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !amount.valid }">
+       
+            <input type="text" placeholder="Enter Debit Amount" class="form-control" name="amount" [(ngModel)]="Amount" #amount="ngModel" required />
+            <div *ngIf="f.submitted && !amount.valid" class="help-block">Debit Amount is required</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !comment.valid }">
+       
+            <input type="text" placeholder="Enter Comment" class="form-control" name="comment" [(ngModel)]="Comment" #comment="ngModel" required />
+            <div *ngIf="f.submitted && !comment.valid" class="help-block">Comment is required</div>
+        </div>
+
+
+    
+        <div class="row">
+          <div class="div-marginlt">
+          <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Debit
+          </button>
+          </div>
+    
+        </div>
+    
+        
+          
+        </div>
+    
+    
+        
+    </form>
+    
+    
+    
+      
+        
+      </div>
+    
+    </div>

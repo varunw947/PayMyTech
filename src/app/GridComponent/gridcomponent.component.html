@@ -1,0 +1,63 @@
+
+<p-table #dt [columns]="cols" [value]="data" selectionMode="single"
+[paginator]="true" [scrollable]="true" [rows]="30" columnResizeMode="expand" exportFilename="{{dynamicExportFileName}}" 
+   [resizableColumns]="true">
+
+  
+<ng-template pTemplate="caption">
+  <div class="p-d-flex">
+      <!-- <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button> -->
+      <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <!-- <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" /> -->
+      </span>
+  </div>
+</ng-template>
+<!-- <div  style="overflow-x: auto;min-width: 100px;"> -->
+  <ng-template pTemplate="header" let-columns>
+    <tr style="border-bottom: 1px solid #bdb9b9;background: #122a61;color: #fff;">
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn style="overflow-wrap: break-word;">
+        {{col.header}}
+        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+      </th>
+      <th *ngIf="IsEdit || IsDelete" style="width: 130px">
+        &nbsp;
+      </th>  
+      <th *ngIf="IsImpersonate" style="width: 130px">
+          &nbsp;
+      </th>    
+    </tr>
+    <!-- <tr style="border-bottom:1px solid #bdb9b9;padding:0;">
+      <th *ngFor="let col of columns" [ngSwitch]="col.field" style="padding:0;">
+        <input pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" style="padding:1px;width:100%">
+      </th>
+      <th *ngIf="IsEdit || IsDelete">
+        
+      </th>
+      <th *ngIf="IsImpersonate"></th>
+    </tr> -->
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData" style="border-bottom:2px solid #bdb9b9">
+      <td *ngFor="let col of columns;  let odd=odd; let even=even " class="ui-resizable-column" style="overflow-wrap: break-word">
+          
+       {{(col.type == 'currency') ?  (rowData[col.field]  | currency:'INR'):rowData[col.field]}} 
+      </td>
+      <td *ngIf="IsEdit || IsDelete">
+        <!-- <span  style="margin-bottom: 2px;" (click)="getTicketDetails(rowData)" ><i style="font-size: 16px;padding: 10px;color: #fc4c02" class="far fa-eye"></i></span> -->
+        <input *ngIf="(IsEdit && rowData.LinkUsed) || (IsEdit && !(rowData.hasOwnProperty('LinkUsed')))" type="button" value="Edit" style="padding: 5px 20px;"class="btn btn-info" (click)="edit(rowData)" />
+        <input *ngIf="(IsDelete && rowData.DeleteLinkUsed) || (IsDelete && !(rowData.hasOwnProperty('DeleteLinkUsed')))" type="button" value="Delete" style="padding: 5px 20px;"class="btn btn-danger" (click)="delete(rowData)" />
+      </td>      
+      <td *ngIf="IsImpersonate">
+          <input type="button" value="Impersonate" style="padding: 5px 20px;"class="btn btn-danger" (click)="Impersonate(rowData)" />
+        </td>
+    </tr>
+  </ng-template>
+<!-- </div> -->
+  <ng-template pTemplate="summary"  >
+      <div class="ui-helper-clearfix" >
+        <button type="button"  (click)="exportExcel(dynamicExportFileName)" class="btn btn-info btn-xs" ><i class="fa fa-file-excel"> Download as Excel</i> </button>
+      </div>
+    </ng-template>
+  
+</p-table>

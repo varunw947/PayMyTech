@@ -1,0 +1,22 @@
+<div class="row icon-mrgn">
+
+  <div class="col-lg-4"  *ngFor="let cat2 of categoryList">
+      <div style="text-align:center">
+        <a (click)="gotoRecharge(cat2.moduleID)"><img  src="/assets/{{cat2.moduleImg}}" style="vertical-align:middle;margin:0px 50px" alt=""></a>
+  
+        <div class="card-body">
+       
+          <h5 class="card-title">
+            
+            <a (click)="gotoRecharge(cat2.moduleID)">{{cat2.moduleName}}</a>
+          </h5>
+          
+         
+        </div>
+        
+      </div>
+    </div>
+  
+  </div>
+  
+  

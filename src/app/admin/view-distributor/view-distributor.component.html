@@ -1,0 +1,31 @@
+<div class="main-content">
+    <h4 class="main-header">Distributor List</h4>
+    
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th style="width: 20%">First Name</th>
+                <th style="width: 20%">Last Name</th>
+                <th style="width: 20%">Email Address</th>
+                <th style="width: 20%">Mobile</th>
+    
+                <th style="width: 20%"></th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dist of distList" class="active-row">
+                <td>{{dist.firstName}}</td>
+                <td>{{dist.lastName}}</td>
+                <td>{{dist.emailAddress}}</td>
+                <td>{{dist.mobile}}</td>
+    
+                <td> <a routerLink="/admin/ad/reportDist/{{dist.id}}" class="btn btn-sm btn-primary mr-1">Distributor Report</a></td>
+                
+                
+            </tr>
+           
+        </tbody>
+    </table>
+    
+    </div>

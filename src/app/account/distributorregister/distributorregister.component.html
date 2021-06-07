@@ -1,0 +1,251 @@
+
+
+<div class="main-content login-center">
+    <div class="card">
+        <h2 class="card-header">Distributor Register</h2>
+        <div *ngIf="IsStep1" class="card-body">
+       
+    
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f.form)" #f="ngForm" novalidate>
+      
+               
+    
+          <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !firstname.valid }">
+            
+            <input type="text" placeholder="First Name" class="form-control" name="firstname" [(ngModel)]="model.FirstName" #firstname="ngModel" required />
+           
+            <div *ngIf="f.submitted && !firstname.valid" class="help-block">First Name is required</div>
+        </div>
+    
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lastname.valid }">
+            
+            <input type="text" placeholder="Last Name" class="form-control" name="lastname" [(ngModel)]="model.LastName" #lastname="ngModel" required />
+           
+            <div *ngIf="f.submitted && !lastname.valid" class="help-block">Last Name is required</div>
+        </div>
+    
+      
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+            
+            <input type="email" [email]="true" placeholder="Email" class="form-control" name="email" [(ngModel)]="model.EmailAddress" #email="ngModel" required />
+           
+            <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required and format should be <i>john@domain.com</i></div>
+        </div>
+        
+        
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
+            
+            <input type="text" pattern="^\s*(([+]\s?\d[-\s]?\d|0)?\s?\d([-\s]?\d){9}|[(]\s?\d([-\s]?\d)+\s*[)]([-\s]?\d)+)\s*$" placeholder="Mobile Number" class="form-control" name="mobile" [(ngModel)]="model.Mobile" #mobile="ngModel" required />
+           
+            <div *ngIf="f.submitted && !mobile.valid" class="help-block">Mobile Number is required</div>
+            <div *ngIf="mobile.errors?.pattern" class="help-block" style="color:red">Mobile Number is not valid!</div>
+        </div>
+
+        <div class="form-group" style="padding-top: 15px;" [ngClass]="{ 'has-error': f.submitted && !distributorname.valid }">
+            
+            <select class="form-control"  name="distributorname" [(ngModel)]="model.DistID" #distributorname="ngModel" required>
+              <option  value="0">Select Distributor</option>
+            
+              <option *ngFor="let dst of DistributorList" [value]="dst.distID">{{dst.distributorName}}</option>
+            </select>
+            <div *ngIf="f.submitted && !distributorname.valid" class="help-block">Distributor Name is required</div>
+        </div>
+    
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !uniquecode.valid }">
+            
+            <input type="text" placeholder="Unique Reference No." class="form-control" name="uniquecode" [(ngModel)]="model.UniqueCode" #uniquecode="ngModel" required />
+           
+            <div *ngIf="f.submitted && !uniquecode.valid" class="help-block">Unique Reference No. is required</div>
+        </div>
+    
+       
+    
+        
+          <div class="btn-center form-group">
+            
+          <button class="btn btn-primary ml-2">
+           
+           Next
+        </button>
+         
+          </div>
+      </form>
+      
+      
+      </div>
+
+
+      <div *ngIf="IsStep4" class="card-body">
+       
+    
+        <form name="form" (ngSubmit)="f4.form.valid && onNext(f4.form)" #f4="ngForm" novalidate>
+      
+               
+    
+          <div class="form-group"  [ngClass]="{ 'has-error': f4.submitted && !outletname.valid }">
+            
+            <input type="text" placeholder="Outlet Name" class="form-control" name="outletname" [(ngModel)]="model.OutletName" #outletname="ngModel" required />
+           
+            <div *ngIf="f4.submitted && !outletname.valid" class="help-block">Outlet Name is required</div>
+        </div>
+
+        <div class="form-group"  [ngClass]="{ 'has-error': f4.submitted && !address.valid }">
+            
+          <input type="text" placeholder="Address" class="form-control" name="address" [(ngModel)]="model.Address" #address="ngModel" required />
+         
+          <div *ngIf="f4.submitted && !address.valid" class="help-block">Address is required</div>
+      </div>
+
+      <div class="form-group"  [ngClass]="{ 'has-error': f4.submitted && !pincode.valid }">
+            
+        <input type="text" placeholder="PinCode" class="form-control" name="pincode" [(ngModel)]="model.PinCode" #pincode="ngModel" required />
+       
+        <div *ngIf="f4.submitted && !pincode.valid" class="help-block">PinCode is required</div>
+    </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f4.submitted && !location.valid }">
+            
+      <input type="text" placeholder="Location" class="form-control" name="location" [(ngModel)]="model.Location" #location="ngModel" required />
+     
+      <div *ngIf="f4.submitted && !location.valid" class="help-block">Location is required</div>
+  </div>
+
+
+  <div class="form-group"  [ngClass]="{ 'has-error': f4.submitted && !city.valid }">
+            
+    <input type="text" placeholder="City" class="form-control" name="city" [(ngModel)]="model.City" #city="ngModel" required />
+   
+    <div *ngIf="f4.submitted && !city.valid" class="help-block">City is required</div>
+</div>
+
+<div class="form-group"  [ngClass]="{ 'has-error': f4.submitted && !state.valid }">
+            
+  <input type="text" placeholder="State" class="form-control" name="state" [(ngModel)]="model.State" #state="ngModel" required />
+ 
+  <div *ngIf="f4.submitted && !state.valid" class="help-block">State is required</div>
+</div>
+
+<div class="form-group"  [ngClass]="{ 'has-error': f4.submitted && !pancard.valid }">
+            
+  <input type="text" placeholder="PanCard" class="form-control" name="pancard" [(ngModel)]="model.PanCard" #pancard="ngModel" required />
+ 
+  <div *ngIf="f4.submitted && !pancard.valid" class="help-block">PanCard is required</div>
+</div>
+
+<div class="form-group"  [ngClass]="{ 'has-error': f4.submitted && !salesPerson.valid }">
+            
+  <input type="text" placeholder="SalesPerson" class="form-control" name="salesPerson" [(ngModel)]="model.SalesPerson" #salesPerson="ngModel" required />
+ 
+  <div *ngIf="f4.submitted && !salesPerson.valid" class="help-block">SalesPerson is required</div>
+</div>
+  
+    
+       
+        
+          <div class="form-group">
+            
+          <button class="btn btn-primary ml-2">
+           
+           Next
+        </button>
+         
+          </div>
+      </form>
+      
+      
+      </div>
+
+      
+      <div *ngIf="IsStep2" class="card-body">
+       
+    
+        <form name="form" (ngSubmit)="f1.form.valid && Step2(f1.form)" #f1="ngForm" novalidate>
+      
+         <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !otp.valid }">
+            
+            <input type="text" placeholder="OTP Code" class="form-control" name="otp" [(ngModel)]="model.OTPCode" #otp="ngModel" required />
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <button type="button" class="btn btn-link btn-resendcode"  (click)="ReGenerateCodeViaSMS()">Resend OTP</button>                          
+                </div>   
+                <div class="col-md-6 text-center">
+                    <!-- <button type="button" class="btn btn-link btn-resendcode" [disabled]="loading" (click)="ReGenerateCode()">Resend via email</button>                           -->
+                </div>
+            </div>
+            <div *ngIf="f1.submitted && !otp.valid" class="help-block">OTP Code is required</div>
+        </div>
+    
+      
+       
+    
+        
+          <div class="form-group">
+            
+          <button class="btn btn-primary ml-2">
+           
+           Next
+        </button>
+         
+          </div>
+      </form>
+      
+      
+      </div>
+      
+      <div *ngIf="IsStep3" class="card-body">
+       
+    
+        <form name="form" (ngSubmit)="f2.form.valid && Register(f2.form)" #f2="ngForm" novalidate>
+      
+            <div class="form-group " [ngClass]="{ 'has-error': f2.submitted && !password.valid }"> 
+                <input type="password" placeholder="Password" class="form-control" style="display: inline-block;" [(ngModel)]="model.Password" name="password" #password="ngModel" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!£^-_-+~#%*?&])[A-Za-z\d@$!£^-_-+~#%*?&]{8,}$" [required]="model.Id==0" validateEqual="confirmPassword" reverse="true" autocomplete="new-password"/>
+                <div class="tooltip"><i class="fa fa-info-circle"></i>
+                    <span class="tooltiptext">Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number and one of this special character (@$!£^-_-+~#%*?&)</span>
+                  </div>
+                <div *ngIf="f2.submitted && !password.valid" class="help-block">Password is required</div>
+                <div *ngIf="password.errors?.pattern" class="help-block" style="color:red">Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number and one of this special character (@$!£^-_-+~#%*?&)</div>                                
+              
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group " [ngClass]="{ 'has-error': f2.submitted && !confirmPassword.valid }">                                
+                <input type="password"  placeholder="Confirm Password" class="form-control" validateEqual="password" [(ngModel)]="model.ConfirmPassword" name="confirmPassword" #confirmPassword="ngModel" required />
+                <div *ngIf="f2.submitted && !confirmPassword.valid" class="help-block">Password mismatch</div>
+           
+        </div>
+        <div class="clearfix"></div>
+        <div class=" form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" name="terms" [(ngModel)]="model.IsAcceptedTerms"
+                #terms="ngModel" id="terms" required />&nbsp;Please accept the <a target="_blank" [routerLink]="['/cms/parent-terms']"> term and conditions</a> 
+            </label>
+            <div *ngIf="f2.submitted && !terms.valid" class="help-block">Please accept the term and conditions.</div>
+            
+        </div> 
+    
+       
+    
+        
+          <div class="form-group">
+            
+          <button [disabled]="loading" class="btn btn-primary ml-2">
+           
+           Submit
+        </button>
+         
+          </div>
+      </form>
+      
+      
+      </div>
+        
+          
+        </div>
+      
+    </div>
+      
+      
+      
+      
+      
+      
+    

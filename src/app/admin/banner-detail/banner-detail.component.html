@@ -1,0 +1,141 @@
+<div class="main-content">
+    <div>
+    <h4 class="main-header">Banner Details</h4>
+    <button (click)="addBanner()" class="btn btn-primary" style="margin-left: 900px;">Add New Banner</button>
+    </div>
+    
+    
+
+
+     <p-table [value]="bannerList">
+        <!-- <ng-template pTemplate="caption">
+          
+              </ng-template> -->
+      <ng-template pTemplate="header">
+          <tr>
+            <th>Banner Details</th>
+                   
+            <th >Banner URL</th>
+            
+
+            <th >Status</th>
+    
+            
+           
+        <th ></th>
+        <!-- <th ></th> -->
+    
+        
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-bannerList>
+          <tr>
+            <td>{{bannerList.bannerDetails}}</td>
+            <td>{{bannerList.bannerURL}}</td>
+    
+            
+            <td>{{bannerList.status}}</td>
+            
+    
+            
+            
+           <td> <a (click)="editBanner(bannerList)" class="btn btn-sm btn-primary mr-1">Update</a></td>
+            
+           <!-- <td> <a class="btn btn-sm btn-primary mr-1">Delete</a></td>             -->
+          </tr>
+      </ng-template>
+    </p-table> 
+    
+    
+    <p-dialog header="Update Banner" [(visible)]="display">
+         
+      
+         
+    
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.form)" novalidate>
+           
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !bannerdetails.valid }">
+            
+          <input type="text" placeholder="Banner Details" class="form-control" name="bannerdetails" [(ngModel)]="selectedBanner.bannerDetails" #bannerdetails="ngModel" required />
+         
+          <div *ngIf="f.submitted && !bannerdetails.valid" class="help-block">Banner Details is required</div>
+      </div>
+    
+    
+      <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !bannerurl.valid }">
+            
+        <input type="text" placeholder="Enter Banner URL" class="form-control" name="bannerurl" [(ngModel)]="selectedBanner.bannerURL" #bannerurl="ngModel" required />
+       
+        <div *ngIf="f.submitted && !bannerurl.valid" class="help-block">Banner URL is required</div>
+    </div>
+    
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !status.valid }">
+            
+        <input [disabled]="selectedBanner.status" value="Active" type="text" placeholder="Enter Status" class="form-control" name="status" [(ngModel)]="selectedBanner.status" #status="ngModel" required />
+        
+        <!-- <div *ngIf="f.submitted && !status.valid" class="help-block">Status is required</div> -->
+        </div>
+
+        
+    
+    <div class="form-group">
+     <div class="row">
+            <button class="btn btn-primary" style="margin-left: 20px;">Update</button>
+            <button class="btn btn-primary" (click)="closePopup()" style="margin-left: 20px;">Cancel</button>
+      </div>
+    </div>
+    
+    
+       
+    
+        </form> 
+    
+      </p-dialog>
+      
+      <p-dialog header="Add Banner" [(visible)]="displayNew">
+         
+      
+         
+    
+        <form name="form" #f1="ngForm" (ngSubmit)="f1.form.valid && onSubmit2()" novalidate>
+             
+            
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !bannerdetails.valid }">
+            
+                <input type="text" placeholder="Banner Details" class="form-control" name="bannerdetails" [(ngModel)]="model.bannerDetails" #bannerdetails="ngModel" required />
+               
+                <!-- <div *ngIf="f1.submitted && !bannerdetails.valid" class="help-block">Banner Details is required</div> -->
+            </div>
+          
+          
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !bannerurl.valid }">
+                  
+              <input type="text" placeholder="Enter Banner URL" class="form-control" name="bannerurl" [(ngModel)]="model.bannerURL" #bannerurl="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !bannerurl.valid" class="help-block">Banner URL is required</div> -->
+          </div>
+          
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !status.valid }">
+                  
+              <input [disabled]="model.status" value="Active" type="text" placeholder="Enter Status" class="form-control" name="status" [(ngModel)]="model.status" #status="ngModel" required />
+              
+              <!-- <div *ngIf="f1.submitted && !status.valid" class="help-block">Status is required</div> -->
+              </div>
+
+
+
+       <div class="form-group">
+       <div class="row">
+              <button class="btn btn-primary" style="margin-left: 20px;">Add</button>
+              <button class="btn btn-primary" (click)="closePopup2()" style="margin-left: 20px;">Cancel</button>
+        </div>
+      </div> 
+      
+      
+         
+      
+          </form> 
+      
+        </p-dialog>
+    
+    </div>

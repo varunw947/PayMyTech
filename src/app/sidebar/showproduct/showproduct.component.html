@@ -1,0 +1,141 @@
+<div class="row"> 
+
+    <div class="col-lg-1">       
+      
+    
+      </div>
+    
+      <div *ngIf="isMobile">
+    <h2 class="bg-light mb-2">Mobile>>Recharge</h2>
+    
+    <form>
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <label for="validationServer01">Enter Mobile Number</label>
+            <input type="text" class="form-control" required name="productName" ngModel>
+          
+           </div>
+          
+
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+          <select>
+            <option disabled>Select Circle</option>
+            <option>Choose Circle</option>
+            <option *ngFor="let cir of circleList">{{cir.circle_name}}</option>
+        </select>
+        </div>
+      </div>
+        
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <label for="validationServer03">Enter Amount</label>
+            <input type="text" class="form-control" required name="description" ngModel>
+          
+          </div>
+    
+          
+        </div>
+
+       
+      
+        <button class="btn btn-primary" type="submit">Proceed</button>
+      </form>
+      
+    </div>
+    
+    
+    
+    
+    
+    
+    <div *ngIf="isDTH">
+      <h2 class="bg-light mb-2">DTH>>Recharge</h2>
+      
+      <form>
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="validationServer01">Enter DTH Customer ID</label>
+              <input type="text" class="form-control" required name="productName" ngModel>
+            </div>
+            
+          </div>
+          
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="validationServer03">Enter Amount</label>
+              <input type="text" class="form-control" required name="description" ngModel>
+            
+            </div>
+      
+            
+          </div>
+        
+          <button class="btn btn-primary" type="submit">Proceed</button>
+        </form>
+        
+      </div>
+    
+    
+      <div *ngIf="isMoney">
+        <h2 class="bg-light mb-2">Money Transfer</h2>
+        
+        <form>
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label for="validationServer01">Enter Account Number</label>
+                <input type="text" class="form-control" required name="productName" ngModel>
+              </div>
+              
+            </div>
+            
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label for="validationServer03">Enter Amount</label>
+                <input type="text" class="form-control" required name="description" ngModel>
+              
+              </div>
+        
+              
+            </div>
+          
+            <button class="btn btn-primary" type="submit">Proceed</button>
+          </form>
+          
+        </div>
+    
+    
+    
+    
+        <div *ngIf="isTravel">
+          <h2 class="bg-light mb-2">Travel Booking</h2>
+          
+          <form>
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <label for="validationServer01">Enter Destination</label>
+                  <input type="text" class="form-control" required name="productName" ngModel>
+                </div>
+                
+              </div>
+              
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <label for="validationServer03">No. of Persons</label>
+                  <input type="text" class="form-control" required name="description" ngModel>
+                
+                </div>
+          
+                
+              </div>
+            
+              <button class="btn btn-primary" type="submit">Proceed</button>
+            </form>
+            
+          </div>
+    
+    
+    
+      </div>

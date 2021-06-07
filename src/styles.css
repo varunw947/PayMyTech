@@ -1,0 +1,320 @@
+ 
+
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+@media (max-width:768px)
+{
+    .main-header h2
+    {
+
+       font-size: 30px;
+    }
+
+    .styled-table {       
+        width: 350px!important;      
+        height: 200px!important;          
+    }
+
+    .report-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        width: 500px!important;
+        height:400px!important;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+    
+        
+          display: inline-block;
+          overflow-y: scroll;
+          overflow-x: scroll!important;
+    }
+
+    .retailer-table {
+        
+        width: 90%!important;
+       
+    }
+
+    .card-header
+    {
+        box-shadow: 0px 2px 12px 0px #d4edf7;
+        background-color: #33b5e5;
+        color: #fff;
+        border: none;
+    }
+
+    .card-header-dist
+    {
+        box-shadow: 0px 2px 12px 0px #d4edf7;
+        background-color: #336be5;
+        color: #fff;
+        border: none;
+    }
+
+    .menu-btn{
+        margin-left: 15px!important;
+    }
+
+
+    .main-content.login-center
+    {
+    
+        max-width: 90%!important;
+    }
+}
+
+
+
+
+
+div.menu-btn{
+    float:right; margin-left: 250px;
+}
+.main-content.login-center{
+max-width: 30%;
+}
+
+
+
+
+h4.card-header
+{
+    box-shadow: 0px 2px 12px 0px #d4edf7;
+    background-color: #33b6e594;
+    color: #fff;
+    border: none;
+}
+
+h4.card-header-dist
+    {
+        box-shadow: 0px 2px 12px 0px #d4edf7;
+        background-color: #628adf;
+        color: #fff;
+        border: none;
+        height:50px;
+        padding-top: 10px;
+    }
+
+
+h2.card-header
+{
+    box-shadow: 0px 2px 12px 0px #d4edf7;
+    background-color: #33b5e5;
+    color: #fff;
+    border: none;
+}
+
+
+
+.main-header
+    {
+
+            background: #fff;
+            color: black;
+            box-shadow: none;
+            border-bottom: 5px solid #49b4d0;
+            padding:10px;
+    }
+
+    .main-body
+    {
+
+            padding:50px;
+    }
+
+    .icon-mrgn
+    {
+
+        padding:100px;
+    }
+
+ .main-content{
+     margin-top: 10px;
+padding:50px 0px;
+    max-width: 90%; margin: 0px auto;
+ }
+
+ .btn-center{
+   
+    position: center;
+}
+
+ 
+div.form-group {
+    margin-bottom: 1rem;
+    padding-top: 15px;
+}
+
+a { cursor: pointer }
+
+.app-container {
+    min-height: 320px;
+    overflow: hidden;
+}
+
+div.scroll {
+    
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+}
+
+.btn-delete-user {
+    width: 40px;
+    text-align: center;
+    box-sizing: content-box;
+}
+
+.help-block{
+
+    color:red;
+}
+
+.has-error.form-control{
+    border: 1px solid red;
+}
+
+
+
+li.nav-item{
+    margin-left: 20px;
+    display: block;
+    
+margin-right: auto;
+}
+
+li.nav-item a, span{
+    font-size: 15px;
+    text-transform: uppercase; 
+    font-weight: bold;
+
+}
+.navbar-light .navbar-brand {
+    color: rgb(124 124 125)!important;
+}
+
+.dropdown-item{
+    font-size: 15px;
+    text-transform: uppercase; 
+    font-weight: bold;
+    color: rgb(124 124 125)!important;
+
+}
+
+
+
+.btn-primary{
+    color: #fff;
+    background-color: #33b5e5 !important;
+    border-color: #33b5e5 !important;
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+
+.div-marginlt
+{
+    padding-left: 15px;
+}
+.card{
+    box-shadow: 0px 2px 22px 0px #ccc;
+}
+
+
+.tdimg{
+    height: 80px;
+    width: 80px;
+    border: 1px solid #33b5e5;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+
+.list-group{
+    text-align: center;
+}
+
+.container-fluid-padding{
+    padding: 10%;
+}
+
+
+
+
+
+
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+
+    height: 300px; 
+      display: inline-block;
+      overflow-y: scroll;
+}
+
+.retailer-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+
+    height: auto; 
+      display: inline-block;
+      overflow-y: scroll;
+}
+
+.report-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 90%;
+    height:500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+
+    
+      display: inline-block;
+      overflow-y: scroll;
+}
+
+.styled-table thead tr {
+    background-color: #2be1ee;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+

@@ -1,0 +1,148 @@
+<div class="main-content">
+
+<div class="shadow main-header">
+  <h2>Update KYC</h2>
+</div> 
+    
+<div class="shadow main-body">
+  <form name="form" style="padding-top: 30px;" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    
+    <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !firstname.valid }">
+       <input type="text" placeholder="First Name" class="form-control" name="firstname" [(ngModel)]="FirstName" #firstname="ngModel" required />
+        <div *ngIf="f.submitted && !firstname.valid" class="help-block">First Name is required</div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lastname.valid }">
+      <input type="text" placeholder="Last Name" class="form-control" name="lastname" [(ngModel)]="LastName" #lastname="ngModel" required />
+       <div *ngIf="f.submitted && !lastname.valid" class="help-block">Last Name is required</div>
+   </div>
+    
+   <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }">
+    <input type="text" placeholder="Mobile" class="form-control" name="mobile" [(ngModel)]="Mobile" #mobile="ngModel" required />
+     <div *ngIf="f.submitted && !mobile.valid" class="help-block">Mobile is required</div>
+ </div> -->
+
+ <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !aadhar.valid }">
+  <input type="text" placeholder="Upload aadhar Card" class="form-control" name="aadharimage" [(ngModel)]="Aadhar" #aadhar="ngModel" required />
+  
+</div> -->
+<div class="row">
+  <div>
+  <label style="color:rgb(164, 164, 226);">Upload Profile Picture</label>
+  <input #file type="file" [(ngModel)]="UserImage" class="form-control" name="userimage"    accept="image/*" (change)="upload(file.files)"  />
+</div>
+
+<div>
+  <a *ngIf="UserImage" [href]="docURL + UserImage" target="_blank">
+  <img style="width: 200px;height: 200px;padding-left:50px;padding-top:20px; border:1px" [src]="docURL + UserImage">
+</a>
+<img *ngIf="!UserImage" style="width: 200px;height: 200px;padding-left:50px; border:1px" src="{{docURL}}no-doc.png">
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="row">
+  <div>
+<label style="color:rgb(164, 164, 226); margin-top: 30px;">Upload Aadhar Front Image</label>
+<input #file1 type="file" [(ngModel)]="AadharFrontImage" class="form-control" name="aadharfrontimage"    accept="image/*" (change)="uploadAadharFront(file1.files)"  />
+</div>
+
+<div>
+  <a *ngIf="AadharFrontImage" [href]="docURL + AadharFrontImage" target="_blank">
+  <img style="width: 200px;height: 200px;padding-left:50px;padding-top:20px; border:1px" [src]="docURL + AadharFrontImage">
+</a>
+<img *ngIf="!AadharFrontImage" style="width: 200px;height: 200px;padding-left:50px; padding-top:20px;border:1px" src="{{docURL}}no-doc.png">
+</div>
+
+
+</div>
+
+
+
+<div class="row">
+
+  <div>
+  <label style="color:rgb(164, 164, 226); margin-top: 30px;">Upload Aadhar Back Image</label>
+  <input #file2 type="file" [(ngModel)]="AadharBackImage" class="form-control" name="aadharbackimage"    accept="image/*" (change)="uploadAadharBack(file2.files)"  />
+</div>
+
+
+<div>
+  <a *ngIf="AadharBackImage" [href]="docURL + AadharBackImage" target="_blank">
+  <img style="width: 200px;height: 200px;padding-left:50px;padding-top:20px; border:1px" [src]="docURL + AadharBackImage">
+</a>
+<img *ngIf="!AadharBackImage" style="width: 200px;height: 200px;padding-left:50px; padding-top:20px;border:1px" src="{{docURL}}no-doc.png">
+</div>
+
+
+</div>
+
+  <div class="row">
+
+    <div>
+    <label style="color:rgb(164, 164, 226); margin-top: 30px;">Upload Pan Card</label>
+    <input #file3 type="file" [(ngModel)]="PanImage" class="form-control" name="panimage"    accept="image/*" (change)="uploadPanImage(file3.files)"  />
+  </div>
+  
+  <div>
+    <a *ngIf="PanImage" [href]="docURL + PanImage" target="_blank">
+    <img style="width: 200px;height: 200px;padding-left:50px;padding-top:20px; border:1px" [src]="docURL + PanImage">
+  </a>
+  <img *ngIf="!PanImage" style="width: 200px;height: 200px;padding-left:50px; padding-top:20px;border:1px" src="{{docURL}}no-doc.png">
+  </div>
+
+  
+  </div>
+
+    
+
+<!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !pan.valid }">
+  <input type="text" placeholder="Upload PAN Card" class="form-control" name="pan" [(ngModel)]="PAN" #pan="ngModel" required />
+  
+</div> -->
+
+
+  
+    
+    
+   
+   
+
+    <div class="row" style="padding-top: 30px;">
+      <div class="form-group" style="padding-left: 30px;">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Submit
+      </button>
+      </div>
+
+<div style="padding-left: 15px;" class="form-group">
+      <button class="btn btn-primary" routerLink="/sidebar/home/category"> Cancel </button>
+    </div>
+      
+    </div>
+
+
+    
+</form>
+      
+      
+      </div>
+
+    </div>    
+     
+      
+        
+          
+        
+      
+      
+      
+      
+      
+      
+    

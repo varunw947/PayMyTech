@@ -1,0 +1,184 @@
+<div class="main-content">
+    <div>
+    <h4 class="main-header">Recharge API Details</h4>
+    <button (click)="addApi()" class="btn btn-primary" style="margin-left: 900px;">Add New Recharge API</button>
+    </div>
+    
+    
+
+
+     <p-table [value]="apiList">
+        <!-- <ng-template pTemplate="caption">
+          
+              </ng-template> -->
+      <ng-template pTemplate="header">
+          <tr>
+            <th>API Name</th>
+                   
+            <th>API Code</th>
+
+            <th>User Name</th>
+                   
+            <th>Password</th>
+
+            <th>Balance</th>
+                   
+            <th>Status</th>
+
+            
+    
+            
+           
+        <th ></th>
+        <!-- <th ></th> -->
+    
+        
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-apiList>
+          <tr>
+            <td>{{apiList.apiName}}</td>
+            <td>{{apiList.apiCode}}</td>
+
+            <td>{{apiList.userName}}</td>
+            <td>{{apiList.password}}</td>
+
+            <td>{{apiList.balance}}</td>
+           
+            
+            <td>{{apiList.status}}</td>
+
+            
+           <td> <a (click)="editApi(apiList)" class="btn btn-sm btn-primary mr-1">Update API</a></td>
+            
+           <!-- <td> <a class="btn btn-sm btn-primary mr-1">Delete</a></td>             -->
+          </tr>
+      </ng-template>
+    </p-table> 
+    
+    
+    <p-dialog header="Update Recharge API" [(visible)]="display">
+         
+      
+         
+    
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.form)" novalidate>
+           
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !apiname.valid }">
+            
+          <input type="text" placeholder="API Name" class="form-control" name="apiname" [(ngModel)]="selectedApi.apiName" #apiname="ngModel" required />
+         
+          <div *ngIf="f.submitted && !apiname.valid" class="help-block">API Name is required</div>
+      </div>
+    
+    
+      <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !apicode.valid }">
+            
+        <input type="text" placeholder="API Code" class="form-control" name="apicode" [(ngModel)]="selectedApi.apiCode" #apicode="ngModel" required />
+       
+        <div *ngIf="f.submitted && !apicode.valid" class="help-block">API Code is required</div>
+    </div>
+  
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            
+        <input type="text" placeholder="User Name" class="form-control" name="username" [(ngModel)]="selectedApi.userName" #username="ngModel" required />
+       
+        <div *ngIf="f.submitted && !username.valid" class="help-block">User Name is required</div>
+    </div>
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            
+        <input type="text" placeholder="Password" class="form-control" name="password" [(ngModel)]="selectedApi.password" #password="ngModel" required />
+       
+        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+    </div>
+
+
+    <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !balance.valid }">
+            
+        <input type="text" placeholder="Balance" class="form-control" name="balance" [(ngModel)]="selectedApi.balance" #balance="ngModel" required />
+       
+        <div *ngIf="f.submitted && !balance.valid" class="help-block">Balance is required</div>
+    </div>
+  
+
+   
+        
+    
+    <div class="form-group">
+     <div class="row">
+            <button class="btn btn-primary" style="margin-left: 20px;">Update</button>
+            <button class="btn btn-primary" (click)="closePopup()" style="margin-left: 20px;">Cancel</button>
+      </div>
+    </div>
+    
+    
+       
+    
+        </form> 
+    
+      </p-dialog>
+      
+      <p-dialog header="Add Recharge API Details" [(visible)]="displayNew">
+         
+      
+         
+    
+        <form name="form" #f1="ngForm" (ngSubmit)="f1.form.valid && onSubmit2()" novalidate>
+             
+          
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !apiname.valid }">
+            
+                <input type="text" placeholder="API Name" class="form-control" name="apiname" [(ngModel)]="model.apiName" #apiname="ngModel" required />
+               
+                <!-- <div *ngIf="f1.submitted && !apiname.valid" class="help-block">API Name is required</div> -->
+            </div>
+          
+          
+            <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !apicode.valid }">
+                  
+              <input type="text" placeholder="API Code" class="form-control" name="apicode" [(ngModel)]="model.apiCode" #apicode="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !apicode.valid" class="help-block">API Code is required</div> -->
+          </div>
+        
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !username.valid }">
+                  
+              <input type="text" placeholder="User Name" class="form-control" name="username" [(ngModel)]="model.userName" #username="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !username.valid" class="help-block">User Name is required</div> -->
+          </div>
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !password.valid }">
+                  
+              <input type="text" placeholder="Password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !password.valid" class="help-block">Password is required</div> -->
+          </div>
+      
+      
+          <div class="form-group"  [ngClass]="{ 'has-error': f1.submitted && !balance.valid }">
+                  
+              <input type="text" placeholder="Balance" class="form-control" name="balance" [(ngModel)]="model.balance" #balance="ngModel" required />
+             
+              <!-- <div *ngIf="f1.submitted && !balance.valid" class="help-block">Balance is required</div> -->
+          </div>
+  
+          
+       <div class="form-group">
+       <div class="row">
+              <button class="btn btn-primary" style="margin-left: 20px;">Add</button>
+              <button class="btn btn-primary" (click)="closePopup2()" style="margin-left: 20px;">Cancel</button>
+        </div>
+      </div> 
+      
+      
+         
+      
+          </form> 
+      
+        </p-dialog>
+    
+    </div>

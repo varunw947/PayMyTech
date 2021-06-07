@@ -1,0 +1,52 @@
+<div class="main-content">
+    <h2 class="main-header">Transaction Report</h2>
+    
+    <table class="styled-table report-table">
+        <thead>
+            <tr>
+                <!-- <th style="width: 30%">TransID</th>
+                <th style="width: 30%">Provider Name</th>
+                <th style="width: 30%">Mobile Number</th>
+                <th style="width: 10%">Amount</th>
+                <th style="width: 10%">Status</th> 
+                 <th style="width: 10%">Profit</th>   -->
+    
+    
+                 <th style="width: 20%">TransID</th>
+                <th style="width: 20%">Transaction Type</th>
+                <th style="width: 20%">Operator Type</th>
+                <th style="width: 20%">Amount</th>
+                <th style="width: 20%">Status</th>
+                <th style="width: 20%">Profit</th>
+                <!-- <th style="width: 20%">Admin Profit</th> -->
+                <th style="width: 30%">TransactionDate</th>  
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let report of reportList" class="active-row">
+                <!-- <td>{{report.id}}</td>
+                <td>{{report.provider}}</td>
+                <td>{{report.number}}</td>
+                <td>{{report.amount}}</td>
+                <td>{{report.status}}</td> 
+                <td>{{report.profit}}</td>   -->
+    
+    
+                <td>{{report.id}}</td>
+                <td>{{report.transactionType}}</td>
+                <td>{{report.operatorType}}</td>
+                <td>{{report.amount}}</td>
+                <td>{{report.status}}</td>
+                <td>{{report.profit}}</td>
+                <!-- <td>{{report.adminProfit}}</td> -->
+                <td>{{report.createdDate}}</td>  
+
+                
+            </tr>
+           
+        </tbody>
+    </table>
+    
+    
+    </div>

@@ -1,0 +1,85 @@
+<div class="main-content">
+    <div>
+    <h4 class="main-header">News Details</h4>
+    <!-- <button (click)="addNews()" class="btn btn-primary" style="margin-left: 900px;">Add New News</button> -->
+    </div>
+    
+    
+
+
+     <p-table [value]="newsList">
+        <!-- <ng-template pTemplate="caption">
+          
+              </ng-template> -->
+      <ng-template pTemplate="header">
+          <tr>
+            <th>Target User</th>
+                   
+            <th >News</th>
+            <th >Req Date</th>
+    
+           
+           
+        <th ></th>
+        <!-- <th ></th> -->
+    
+        
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-newsList>
+          <tr>
+            <td>{{newsList.targetUser}}</td>
+            <td>{{newsList.news}}</td>
+    
+            <td>{{newsList.reqDate}}</td>
+            
+    
+            
+            
+           <td> <a (click)="editNews(newsList)" class="btn btn-sm btn-primary mr-1">Update</a></td>
+            
+           <!-- <td> <a class="btn btn-sm btn-primary mr-1">Delete</a></td>             -->
+          </tr>
+      </ng-template>
+    </p-table> 
+    
+    
+    <p-dialog header="Update News" [(visible)]="display">
+         
+      
+         
+    
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.form)" novalidate>
+           
+        <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !news.valid }">
+            
+          <input type="text" placeholder="News" class="form-control" name="news" [(ngModel)]="selectedNews.news" #news="ngModel" required />
+         
+          <div *ngIf="f.submitted && !news.valid" class="help-block">News is required</div>
+      </div>
+    
+    
+      
+    
+    
+      <div class="form-group">
+        <div class="row">
+               <button class="btn btn-primary" style="margin-left: 20px;">Update</button>
+               <button class="btn btn-primary" (click)="closePopup()" style="margin-left: 20px;">Cancel</button>
+         </div>
+       </div>
+    
+    
+    
+    
+    
+    
+       
+    
+        </form> 
+    
+      </p-dialog>
+      
+      
+    
+    </div>

@@ -1,0 +1,41 @@
+<div class="main-content">
+    <div>
+        <h4 class="main-header">Distributor Register</h4>
+        <div >
+       
+    
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      
+               
+    
+          <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !distributorname.valid }">
+            
+            <input type="text" placeholder="Distributor Name" class="form-control" name="distributorname" [(ngModel)]="DistributorName" #distributorname="ngModel" required />
+           
+            <div *ngIf="f.submitted && !distributorname.valid" class="help-block">Distributor Name is required</div>
+        </div>
+    
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !uniquecode.valid }">
+            
+            <input type="text" placeholder="Unique Code" class="form-control" name="uniquecode" [(ngModel)]="UniqueCode" #uniquecode="ngModel" required />
+           
+            <div *ngIf="f.submitted && !uniquecode.valid" class="help-block">Unique Code is required</div>
+        </div>
+    
+      
+        
+          <div class="form-group" style="margin-left: 150px;">
+            
+          <button class="btn btn-primary ml-2">
+           
+           Save
+        </button>
+         
+          </div>
+      </form>
+      
+      
+      </div>
+
+      </div>
+      </div>

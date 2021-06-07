@@ -1,0 +1,113 @@
+
+
+<div>
+
+  <div class="app-container">
+    <alert></alert>
+
+    
+
+    <router-outlet></router-outlet>
+  </div>
+  
+  </div>
+
+
+
+
+
+
+
+<!--
+<div class="col-lg-9">
+
+  <div class="app-container" [ngClass]="{ 'bg-light': user }">
+    <alert></alert>
+    <router-outlet></router-outlet>
+  </div>
+  
+  </div>
+
+-->
+
+
+
+<!-- nav 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="/">safePay</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">Buy <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"  routerLinkActive="active" routerLink="/rent-property">Rent</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active"  routerLink="/add-property">List Property (Free)</a>
+      </li>
+    </ul>
+
+    <div>
+      <ul class="nav navbar-nav">
+        <li *ngIf="!loggedin()" class="nav-item">
+          <a class="nav-link"
+          routerLink="user/register"
+          routerLinkActive="active"
+          >Register</a>
+        </li>
+        <li *ngIf="!loggedin()" class="nav-item">
+          <a class="nav-link"
+          routerLink="user/login"
+          routerLinkActive="active"
+          >Login</a>
+        </li>
+       
+        <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
+          <a href="#" class="dropdown-toggle text-light" dropdownToggle (click)="false">
+              Welcome {{loggedinUser}}
+          </a>
+          <div class="dropdown-menu" *dropdownMenu>
+              <a href="#"class="dropdown-item">
+                <i class="fas fa-tachometer-alt"></i> View Dashboard</a>
+              <a href="#" class="dropdown-item">
+                <i class="far fa-user-circle"></i> My Profile</a>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-key"></i> Change Password</a>
+              <a (click)='logout()' class="dropdown-item">
+                <i class="fas fa-sign-out-alt"></i> Logout</a>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+-->
+
+
+
+<!-- main app container -->
+
+
+
+<!-- credits -->
+
+<!--
+<div class="text-center mt-4">
+  <p>
+      <a href="https://jasonwatmore.com/post/2020/07/18/angular-10-user-registration-and-login-example-tutorial" target="_top">Angular 10 - User Registration and Login Example & Tutorial</a>
+  </p>
+  <p>
+      <a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+  </p>
+</div>
+-->

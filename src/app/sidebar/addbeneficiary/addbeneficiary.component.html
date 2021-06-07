@@ -1,0 +1,104 @@
+<div style="width:300px">
+    <h2 class="main-header">Add Beneficiary</h2>
+
+  
+    <!--
+    <a routerLink="/sidebar/home/money" class="btn btn-link">Money Tranfer</a>
+
+    -->
+    
+    <form style="padding-top: 30px;" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+  
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mobilenumber.valid }">
+        
+        <input type="text" placeholder="Enter Mobile Number of Sender"  class="form-control" name="mobilenumber" [(ngModel)]="MobileNumber" #mobilenumber="ngModel" required />
+       
+        <div *ngIf="f.submitted && !mobilenumber.valid" class="help-block">Mobile Number is required</div>
+    </div>
+     
+    <div class="form-group" style="padding-top: 15px;" [ngClass]="{ 'has-error': f.submitted && !bankname.valid }">
+        
+        <select class="form-control" (change)="changeBank($event)" name="bankname" [(ngModel)]="BankId" #bankname="ngModel" required>
+          <option [disabled]="BankId" value="undefined">Select Bank Name</option>
+        
+          <option *ngFor="let bnk of bankList" [value]="bnk.id">{{bnk.bank_name}}</option>
+        </select>
+        <div *ngIf="f.submitted && !bankname.valid" class="help-block">Bank Name is required</div>
+    </div>
+
+
+    
+  <div class="col-lg-4"  *ngFor="let bnk of bankData">
+    <div style="text-align:center">
+      <a><img  src="{{bnk.bankImg}}" style="vertical-align:middle;margin:0px 50px" alt=""></a>
+
+      <div class="card-body">
+     
+        <h5 class="card-title">
+          
+          <a>{{bnk.bank_name}}</a>
+        </h5>
+        
+       
+      </div>
+      
+    </div>
+  </div>
+
+
+      <div class="form-group" style="padding-top: 15px;" [ngClass]="{ 'has-error': f.submitted && !bankcode.valid }">
+          
+          <input [disabled]="BankCode" placeholder="Enter Bank Code"  type="text" class="form-control" name="bankcode" [(ngModel)]="BankCode" #bankcode="ngModel" required />
+      </div>
+  
+      <div class="form-group" style="padding-top: 15px;" [ngClass]="{ 'has-error': f.submitted && !ifsc.valid }">
+        
+        <input [disabled]="IFSC" placeholder="Enter IFSC Code"  type="text" class="form-control" name="ifsc" [(ngModel)]="IFSC" #ifsc="ngModel" required />
+        
+    </div>
+  
+      <div class="form-group" style="padding-top: 15px;" [ngClass]="{ 'has-error': f.submitted && !account.valid }">
+         
+          <input type="text" placeholder="Enter Account Number of Recipient" class="form-control" name="account" [(ngModel)]="Account" #account="ngModel" required />
+          <div *ngIf="f.submitted && !account.valid" class="help-block">Account Number is required</div>
+      </div>
+
+      <div class="form-group" style="padding-top: 15px;" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+        
+        <input type="text" placeholder="Enter Recipient Name"  class="form-control" name="name" [(ngModel)]="Name" #name="ngModel" required />
+        <div *ngIf="f.submitted && !name.valid" class="help-block">Recipient Name is required</div>
+    </div>
+      
+      
+        
+    <div class="row" style="padding-top: 15px;">
+      <div class="form-group" style="padding-left: 30px;">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Submit
+      </button>
+      </div>
+
+<div style="padding-left: 15px;" class="form-group">
+      <button class="btn btn-primary" routerLink="/sidebar/home/money"> Cancel </button>
+    </div>
+      
+    </div>
+
+
+      
+  </form>
+  
+  
+  
+    
+      
+    </div>
+  
+  
+  
+  
+  
+  
+  
+  

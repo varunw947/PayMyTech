@@ -1,0 +1,84 @@
+<!-- <div style="margin-left: 20px;margin-top: 50px;"> -->
+    <div class="main-content">
+    <h2 class="main-header">Retailer Sales Report</h2>
+
+    <div class="col-md-12">
+        <div class="p-3 w-50">
+            <input type="text"
+            ngxDaterangepickerMd
+            [(ngModel)]="selected"
+            [showCustomRangeLabel]="true"
+            [alwaysShowCalendars]="true"
+            [showRangeLabelOnInput]="true"
+            [locale]="{applyLabel: 'Apply', format: 'DD-MM-YYYY'}"
+            [ranges]="ranges"
+            [linkedCalendars]="false" 
+            [showClearButton]="true"
+            (datesUpdated)="bindRetailerReportByDate()"
+            placeholder="FilterByDate" class="form-control"/>
+        </div>
+      
+    </div>
+
+    <grid-control [cols]="colms" [data]="data" [IsEdit]="false" [dynamicExportFileName]="reportName"></grid-control>
+
+    
+    <!-- <table class="styled-table">
+        <thead>
+            <tr>
+                <th style="width: 10%">Distributor Code</th>
+                <th style="width: 10%">Distributor Outlet Name</th>
+                <th style="width: 10%">Retailer Unique Code</th>
+                <th style="width: 10%">Retailer Name</th>
+                <th style="width: 10%">Retailer Outlet Name</th>
+
+                <th style="width: 10%">Location</th>
+                <th style="width: 10%">State</th>
+                <th style="width: 10%">Sales Person</th>
+                
+                <th style="width: 10%">Mobile Trans</th>
+                <th style="width: 10%">Mobile Value</th>
+                <th style="width: 10%">DMT Trans</th>
+                <th style="width: 10%">DMT Value</th>
+                <th style="width: 10%">Bill Trans</th>
+                <th style="width: 10%">Bill Value</th>
+    
+                <th style="width: 10%">PackageType</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ret of retailerList" class="active-row">
+                <td>{{ret.uniqueCode}}</td>
+                <td>{{ret.distributorName}}</td>
+               
+                <td>{{ret.userName}}</td>
+                <td>{{ret.firstName}}</td>
+                <td>{{ret.outletName}}</td>
+                <td>{{ret.location}}</td>
+                <td>{{ret.state}}</td>
+                <td>{{ret.salesPerson}}</td>
+                
+                <td>{{ret.mobileTotal}}     </td>
+               <td>{{ret.mobileValue}}</td>
+
+               <td>{{ret.dmtTotal}}     </td>
+                <td>{{ret.dmtValue}}</td>
+
+                <td> {{ret.billTotal}}    </td>
+                <td>{{ret.billValue}}</td>
+
+                
+                <td>{{ret.packageType}}</td>
+                
+    
+               
+                
+                
+            </tr>
+           
+        </tbody>
+    </table> -->
+    
+    
+    </div>

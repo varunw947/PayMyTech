@@ -1,0 +1,75 @@
+<div class="main-content">
+
+<div class="shadow main-header">
+    <h2>Insurance Bill Payment</h2>
+</div>
+    
+<div class="shadow main-body">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !customernumber.valid }">
+         
+          <input type="text" placeholder="Customer Number" class="form-control" name="customernumber" [(ngModel)]="CustomerNumber" #customernumber="ngModel" required />
+          <div *ngIf="f.submitted && !customernumber.valid" class="help-block">Customer Number is required</div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !amount.valid }">
+         
+          <input type="number" placeholder="Amount" class="form-control" name="amount" [(ngModel)]="Amount" #amount="ngModel" required />
+          <div *ngIf="f.submitted && !amount.valid" class="help-block">Amount is required</div>
+      </div>
+      
+      
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !provider.valid }">
+         
+          <select class="form-control" (change)="getProviderName($event)" name="provider" [(ngModel)]="ProviderId" #provider="ngModel" required>
+            <option [disabled]="ProviderId" value="undefined">Select Provider</option>
+          
+            <option *ngFor="let pvd of providerList" [value]="pvd.providerID">{{pvd.providerName}}</option>
+          </select>
+          <div *ngIf="f.submitted && !provider.valid" class="help-block">Provider is required</div>
+      </div>
+     
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mobilenumber.valid }">
+        
+        <input type="text" pattern="^\s*(([+]\s?\d[-\s]?\d|0)?\s?\d([-\s]?\d){9}|[(]\s?\d([-\s]?\d)+\s*[)]([-\s]?\d)+)\s*$" placeholder="Mobile Number" class="form-control" name="mobilenumber" [(ngModel)]="MobileNumber" #mobilenumber="ngModel" required />
+        <div *ngIf="f.submitted && !mobilenumber.valid" class="help-block">Mobile Number is required</div>
+        <div *ngIf="mobilenumber.errors?.pattern" class="help-block" style="color:red">Mobile Number is not valid!</div>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+        
+        <input type="email" [email]="true" placeholder="Email" class="form-control" name="email" [(ngModel)]="EmailID" #email="ngModel" required />
+       
+        <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required and format should be <i>john@domain.com</i></div>
+    </div>
+
+
+    <div class="row">
+
+      <div class="div-marginlt">
+
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Submit
+      </button>
+      </div>
+
+    </div>
+
+    <div class="div-marginlt">
+<div class="form-group">
+      <button class="btn btn-primary" routerLink="/sidebar/home/utility"> Cancel </button>
+    </div>
+  </div>
+   
+    </div>
+  </form>
+  
+</div>
+  
+    
+      
+    
+
+
+  </div>
